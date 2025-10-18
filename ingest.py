@@ -5,7 +5,7 @@ from langchain_community.document_loaders import PyPDFLoader
 from langchain_community.vectorstores import Chroma
 # --- CAMBIO 1: Importar desde 'langchain-huggingface' ---
 from langchain_huggingface import HuggingFaceEmbeddings
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_community.tools.text import RecursiveCharacterTextSplitter
 
 # Cargar variables de entorno
 load_dotenv()
