@@ -1,12 +1,9 @@
 streamlit
-langchain
-langchain-openai
-langchain-google-genai
-langchain-community
-chromadb
-pypdf
-python-dotenv
-sentence-transformers
-tf-keras                  
-langchain-huggingface      
-torch --index-url https://download.pytorch.org/whl/cpu
+langchain_core
+dotenv
+langchain_google_genai
+langchain_groq
+langchain_community
+langchain_huggingface
+chromadb 
+chroma-client
