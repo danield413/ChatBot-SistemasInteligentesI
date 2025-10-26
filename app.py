@@ -171,7 +171,7 @@ if user_question := st.chat_input("Escribe tu pregunta sobre IA..."):
                     {"context": retriever | format_docs, "question": RunnablePassthrough()}
                     | prompt
                     | llm_llama
-                    | StrOutputParser()
+                    | StrOutputParser()  # <-- Agregar paréntesis aquí
                 )
                 
                 with st.spinner("🦙 Pensando con Llama 3.1..."):
