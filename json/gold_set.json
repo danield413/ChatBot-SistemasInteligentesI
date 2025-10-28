@@ -1,0 +1,242 @@
+[
+  {
+    "question": "¿Qué es la Inteligencia Artificial (IA) según la definición proporcionada en los documentos, mencionando sus objetivos en la informática?",
+    "category": "CB"
+  },
+  {
+    "question": "Define qué es la IA débil (estrecha) y la IA fuerte (general).",
+    "category": "CB"
+  },
+  {
+    "question": "¿Cómo se describe la relación jerárquica entre la Inteligencia Artificial, el Machine Learning y el Deep Learning?",
+    "category": "CB"
+  },
+  {
+    "question": "¿Qué son los Grandes Modelos de Lenguaje (LLMs) y cuál es su capacidad principal?",
+    "category": "CB"
+  },
+  {
+    "question": "¿Cuáles son los tres tipos de logros de la IA a considerar críticamente según la Guía de la UNESCO sobre IA y educación?",
+    "category": "CB"
+  },
+  {
+    "question": "¿Cuál es la función principal del Procesamiento del Lenguaje Natural (PNL)?",
+    "category": "CB"
+  },
+  {
+    "question": "Define IA Generativa y qué la diferencia de la IA que solo proporciona información sobre cosas existentes.",
+    "category": "CB"
+  },
+  {
+    "question": "¿Qué se entiende por una alucinación en el contexto de la IA generativa o LLMs?",
+    "category": "CB"
+  },
+  {
+    "question": "Según el Proyecto de Ley, ¿cuáles son los sistemas que debe simular la IA para lograr su objetivo?",
+    "category": "CB"
+  },
+  {
+    "question": "¿Qué se entiende por un \"prompt\" en el contexto de los sistemas de IA generativa?",
+    "category": "CB"
+  },
+  {
+    "question": "¿Quién fue John McCarthy y qué evento fundacional de la IA lideró en 1956?",
+    "category": "H"
+  },
+  {
+    "question": "¿Qué evento marcó la culminación del trabajo de los filósofos sobre el pensamiento humano como manipulación de símbolos, según Wikipedia?",
+    "category": "H"
+  },
+  {
+    "question": "¿Qué científico formuló la Máquina de Turing en 1936, y qué pregunta filosófica marcó un diálogo central en la IA?",
+    "category": "H"
+  },
+  {
+    "question": "¿Qué caracterizó el período conocido como el \"invierno de la IA\"?",
+    "category": "H"
+  },
+  {
+    "question": "¿Qué hito de la IA de 1997 demostró que la IA podía superar al humano en tareas de gran complejidad lógica y estratégica?",
+    "category": "H"
+  },
+  {
+    "question": "¿Cuál fue el primer modelo matemático de una neurona artificial inspirado en el neurofisiológico del cerebro humano, y en qué año se publicó?",
+    "category": "H"
+  },
+  {
+    "question": "¿Qué enfoque dominó los primeros años de la investigación en IA (IA clásica o GOFAI)?",
+    "category": "H"
+  },
+  {
+    "question": "¿Qué suceso de la década de 1980 marcó el final del \"primer invierno de la IA\"?",
+    "category": "H"
+  },
+  {
+    "question": "¿Cuál fue la contribución de la publicación de Warren McCulloch y Walter Pitts en 1943 al desarrollo de las redes neuronales artificiales?",
+    "category": "H"
+  },
+  {
+    "question": "¿Qué se entiende por el término \"ingeniería del conocimiento\" asociado a los sistemas expertos de la IA clásica?",
+    "category": "H"
+  },
+  {
+    "question": "¿Qué es el Machine Learning clásico y en qué se basa su enfoque principal?",
+    "category": "ML"
+  },
+  {
+    "question": "¿Cuál es el rol del procesamiento previo de datos (normalización, limpieza) para el éxito del Machine Learning clásico?",
+    "category": "ML"
+  },
+  {
+    "question": "¿Qué es el aprendizaje supervisado y qué tipo de datos utiliza?",
+    "category": "ML"
+  },
+  {
+    "question": "¿Qué tipo de problemas resuelve el algoritmo K-Nearest Neighbors (KNN)?",
+    "category": "ML"
+  },
+  {
+    "question": "Define la técnica de Bagging en los métodos de conjunto (*ensemble methods*).",
+    "category": "ML"
+  },
+  {
+    "question": "Menciona una aplicación específica del Machine Learning clásico en el sector bancario.",
+    "category": "ML"
+  },
+  {
+    "question": "¿Qué es el aprendizaje no supervisado y qué se busca descubrir en este enfoque?",
+    "category": "ML"
+  },
+  {
+    "question": "¿Cuál es el objetivo principal del Machine Learning Clásico en el desarrollo de la IA?",
+    "category": "ML"
+  },
+  {
+    "question": "¿Qué se entiende por Regresión Logística en Machine Learning clásico?",
+    "category": "ML"
+  },
+  {
+    "question": "¿Qué se conoce como Boosting dentro de las técnicas de métodos de conjunto?",
+    "category": "ML"
+  },
+  {
+    "question": "¿Cuál es la diferencia fundamental entre el Deep Learning y el Machine Learning clásico en cuanto a la extracción de características?",
+    "category": "DL"
+  },
+  {
+    "question": "¿Qué son las Redes Neuronales Convolucionales (CNN) y para qué tipo de datos resultan adecuadas?",
+    "category": "DL"
+  },
+  {
+    "question": "¿Qué son los \"Transformadores\" en Deep Learning y para qué se suelen emplear?",
+    "category": "DL"
+  },
+  {
+    "question": "¿Qué es el Preentrenamiento en el funcionamiento de un LLM?",
+    "category": "DL"
+  },
+  {
+    "question": "¿Qué se logra con el proceso de Ajuste Fino (*fine-tuning*) de un LLM?",
+    "category": "DL"
+  },
+  {
+    "question": "Menciona dos de los desafíos que enfrentan los modelos de Deep Learning.",
+    "category": "DL"
+  },
+  {
+    "question": "¿Qué tipo de modelo de Deep Learning fue utilizado para que la IA AlphaGo venciera a los campeones de Go en 2016?",
+    "category": "DL"
+  },
+  {
+    "question": "¿Qué requiere el entrenamiento de un modelo robusto de lenguaje grande (LLM) en términos de recursos de potencia computacional?",
+    "category": "DL"
+  },
+  {
+    "question": "¿Qué tipo de contenido puede procesar un modelo multimodal?",
+    "category": "DL"
+  },
+  {
+    "question": "¿Qué es la arquitectura BERT (Bidirectional Encoder Representations from Transformers)?",
+    "category": "DL"
+  },
+  {
+    "question": "¿Qué es el sesgo algorítmico y por qué los algoritmos lo perpetúan o amplifican?",
+    "category": "E/R"
+  },
+  {
+    "question": "¿Qué establece el principio de \"Transparencia y Explicabilidad\" de la UNESCO?",
+    "category": "E/R"
+  },
+  {
+    "question": "Según el Proyecto de Ley, ¿cuál es el riesgo que representan los Sistemas de Inteligencia Artificial prohibidos?",
+    "category": "E/R"
+  },
+  {
+    "question": "¿Qué busca la Ley 2502/2025 de Colombia en relación con el Código Penal y el fraude de identidad?",
+    "category": "E/R"
+  },
+  {
+    "question": "¿Qué requisito deben cumplir los Sistemas de Inteligencia Artificial de alto riesgo según la clasificación del Proyecto de Ley?",
+    "category": "E/R"
+  },
+  {
+    "question": "¿Qué entidad es designada como la Autoridad Nacional para la Inteligencia Artificial en el Proyecto de Ley radicado por MinCiencias en mayo de 2025?",
+    "category": "E/R"
+  },
+  {
+    "question": "¿Por qué es importante el principio de \"Ética y sostenibilidad\" en el desarrollo de la IA?",
+    "category": "E/R"
+  },
+  {
+    "question": "¿Qué se entiende por \"Ethics by Design\" (Ética desde el Diseño) en el desarrollo de sistemas de IA?",
+    "category": "E/R"
+  },
+  {
+    "question": "¿Qué se entiende por la \"responsabilidad penal en IA\" según el Proyecto de Ley radicado en el Senado?",
+    "category": "E/R"
+  },
+  {
+    "question": "¿Cómo busca Colombia la adaptabilidad y revisión de la regulación de la IA?",
+    "category": "E/R"
+  },
+  {
+    "question": "Menciona una de las aplicaciones prácticas de la IA en el sector salud para la atención a pacientes.",
+    "category": "A"
+  },
+  {
+    "question": "¿Cómo contribuye la IA en la optimización de la cadena de suministro y la logística para el sector empresarial colombiano?",
+    "category": "A"
+  },
+  {
+    "question": "¿Qué tipo de programas académicos se espera que cree la Facultad de Inteligencia Artificial e Ingenierías de la Universidad de Caldas, según el rector?",
+    "category": "A"
+  },
+  {
+    "question": "¿Cuál es la Misión de la Facultad de Ingeniería de la Universidad de Caldas?",
+    "category": "A"
+  },
+  {
+    "question": "¿De qué manera puede la IA impulsar la productividad y competitividad en el sector agrícola colombiano?",
+    "category": "A"
+  },
+  {
+    "question": "¿Cuál es el campo laboral de un profesional de la Ingeniería en Inteligencia Artificial de la Universidad de Caldas relacionado con la gobernanza?",
+    "category": "A"
+  },
+  {
+    "question": "¿Cómo se utiliza la IA para la detección de fraudes en el sector bancario y financiero?",
+    "category": "A"
+  },
+  {
+    "question": "¿Qué aplicaciones de IA en el sector público buscan fortalecer el vínculo Estado-Ciudadanía en Colombia?",
+    "category": "A"
+  },
+  {
+    "question": "¿Cuál es el costo total estimado de la Política Nacional de Inteligencia Artificial (CONPES 4144) hasta 2030?",
+    "category": "A"
+  },
+  {
+    "question": "¿Qué es la Automatización Robótica de Procesos (RPA) y cómo se relaciona con la IA?",
+    "category": "A"
+  }
+]

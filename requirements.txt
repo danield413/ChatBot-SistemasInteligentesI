@@ -7,3 +7,4 @@ langchain_community
 langchain_huggingface
 chromadb 
 chroma-client
+pandas
