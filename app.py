@@ -14,9 +14,7 @@ from langchain_groq import ChatGroq
 
 # --- Imports para el RAG (Embeddings y VectorDB) ---
 from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_community.vectorstores import Chroma
-
-
+from langchain_chroma import Chroma
 
 
 # --- 1. Configuración y Carga de Variables ---
@@ -223,4 +221,3 @@ if st.button("🗑️ Limpiar ambas conversaciones"):
     st.session_state.messages_llama = []
     st.session_state.messages_gemini = []
     st.rerun()
-

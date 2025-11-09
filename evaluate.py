@@ -26,7 +26,7 @@ RESULTS_FILE = "./json/cuaderno_metricas.json"
 CHROMA_API_KEY = os.getenv("CHROMA_API_KEY")
 CHROMA_TENANT = os.getenv("CHROMA_TENANT")
 CHROMA_DATABASE = os.getenv("CHROMA_DATABASE", "ChatBotSI")
-COLLECTION_NAME = os.getenv("CHROMA_COLLECTION_NAME", "ai_documents")
+COLLECTION_NAME = "IA_DOCS"
 # Establecer el tamaño máximo de lote para evitar errores, si bien ya no es crítico.
 MAX_BATCH_SIZE = int(os.getenv("MAX_BATCH_SIZE", "300")) 
 
@@ -79,7 +79,7 @@ template = """
 Eres un asistente de IA de la Facultad de Inteligencia Artificial e Ingenierías de la Universidad de Caldas.
 Tu tarea es responder preguntas sobre IA basándote EXCLUSIVAMENTE en el siguiente contexto.
 Si la información no está en el contexto, debes indicar explícitamente: "Lo siento, no tengo información suficiente sobre ese tema."
-Incluye siempre la fuente de la información al final de tu respuesta, si la encuentras.
+Incluye siempre la fuente de la información al final de tu respuesta, si la encuentras. No uses ni complements información externa (internet).
 
 Contexto:
 {context}
@@ -161,6 +161,7 @@ for model_name, llm in models_to_evaluate.items():
                 "latency_sec": round(latency, 3),
                 "evaluation": {
                     "exactitud_factica": None,
+                    "cobertura": None,
                     "citas_validas": None,
                     "claridad": None,
                     "alucinacion": None,
@@ -181,6 +182,7 @@ for model_name, llm in models_to_evaluate.items():
                 "latency_sec": 999,
                 "evaluation": {
                     "exactitud_factica": None,
+                    "cobertura": None,
                     "citas_validas": None,
                     "claridad": None,
                     "alucinacion": None,
@@ -189,10 +191,10 @@ for model_name, llm in models_to_evaluate.items():
                 }
             })
         
-        # Pausa cada 10 preguntas para evitar límites de cuota
-        if (index + 1) % 10 == 0 and (index + 1) < len(gold_set):
-            print(f"\n⏸️  Pausa de 30 segundos después de {index + 1} preguntas para evitar límites de API...")
-            time.sleep(30)
+        # Pausa cada 7 preguntas durante 1 minuto para evitar límites de cuota
+        if (index + 1) % 7 == 0 and (index + 1) < len(gold_set):
+            print(f"\n⏸️  Pausa de 1 minuto después de {index + 1} preguntas para evitar límites de API...")
+            time.sleep(60)
             print("▶️  Continuando evaluación...\n")
 
 # --- 5. GUARDAR Y PREPARAR RESULTADOS FINALES ---

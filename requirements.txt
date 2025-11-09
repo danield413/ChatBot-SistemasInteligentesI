@@ -8,3 +8,4 @@ langchain_huggingface
 chromadb 
 chroma-client
 pandas
+langchain-chroma

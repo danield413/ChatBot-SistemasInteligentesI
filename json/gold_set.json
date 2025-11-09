@@ -1,22 +1,22 @@
 [
   {
-    "question": "¿Qué es la Inteligencia Artificial (IA) según la definición proporcionada en los documentos, mencionando sus objetivos en la informática?",
+    "question": "Hablame sobre Inteligencia Artificial (IA)",
     "category": "CB"
   },
   {
-    "question": "Define qué es la IA débil (estrecha) y la IA fuerte (general).",
+    "question": "¿Qué es un sistema Multiagente?",
     "category": "CB"
   },
   {
-    "question": "¿Cómo se describe la relación jerárquica entre la Inteligencia Artificial, el Machine Learning y el Deep Learning?",
+    "question": "¿Cuál es la relación entre la Inteligencia Artificial, el Machine Learning y el Deep Learning?",
     "category": "CB"
   },
   {
-    "question": "¿Qué son los Grandes Modelos de Lenguaje (LLMs) y cuál es su capacidad principal?",
+    "question": "¿Qué son los Grandes Modelos de Lenguaje (LLMs)?",
     "category": "CB"
   },
   {
-    "question": "¿Cuáles son los tres tipos de logros de la IA a considerar críticamente según la Guía de la UNESCO sobre IA y educación?",
+    "question": "¿Qué tipos de Inteligencia Artificial existen?",
     "category": "CB"
   },
   {
@@ -32,7 +32,7 @@
     "category": "CB"
   },
   {
-    "question": "Según el Proyecto de Ley, ¿cuáles son los sistemas que debe simular la IA para lograr su objetivo?",
+    "question": "¿De qué debe ser capaz la IA?",
     "category": "CB"
   },
   {
@@ -44,7 +44,7 @@
     "category": "H"
   },
   {
-    "question": "¿Qué evento marcó la culminación del trabajo de los filósofos sobre el pensamiento humano como manipulación de símbolos, según Wikipedia?",
+    "question": "¿Cómo fue el nacimiento formal de la inteligencia artificial?",
     "category": "H"
   },
   {
@@ -68,7 +68,7 @@
     "category": "H"
   },
   {
-    "question": "¿Qué suceso de la década de 1980 marcó el final del \"primer invierno de la IA\"?",
+    "question": "¿A qué se le llamo el 'primer invierno de la IA'?",
     "category": "H"
   },
   {
@@ -76,11 +76,11 @@
     "category": "H"
   },
   {
-    "question": "¿Qué se entiende por el término \"ingeniería del conocimiento\" asociado a los sistemas expertos de la IA clásica?",
+    "question": "¿Qué le pasó a la IA a finales de los años 70?",
     "category": "H"
   },
   {
-    "question": "¿Qué es el Machine Learning clásico y en qué se basa su enfoque principal?",
+    "question": "¿Qué es el Machine Learning clásico?",
     "category": "ML"
   },
   {
@@ -92,15 +92,15 @@
     "category": "ML"
   },
   {
-    "question": "¿Qué tipo de problemas resuelve el algoritmo K-Nearest Neighbors (KNN)?",
+    "question": "¿Qué algoritmos se utilizan en el Machine Learning clásico?",
     "category": "ML"
   },
   {
-    "question": "Define la técnica de Bagging en los métodos de conjunto (*ensemble methods*).",
+    "question": "¿Cuáles son los pasos del proceso de Machine Learning clásico?",
     "category": "ML"
   },
   {
-    "question": "Menciona una aplicación específica del Machine Learning clásico en el sector bancario.",
+    "question": "¿Qué es el F1-score?",
     "category": "ML"
   },
   {
@@ -116,7 +116,7 @@
     "category": "ML"
   },
   {
-    "question": "¿Qué se conoce como Boosting dentro de las técnicas de métodos de conjunto?",
+    "question": "¿Qué es el feature engineering?",
     "category": "ML"
   },
   {
@@ -132,11 +132,11 @@
     "category": "DL"
   },
   {
-    "question": "¿Qué es el Preentrenamiento en el funcionamiento de un LLM?",
+    "question": "¿Cuáles son las aplicaciones del Deep Learning?",
     "category": "DL"
   },
   {
-    "question": "¿Qué se logra con el proceso de Ajuste Fino (*fine-tuning*) de un LLM?",
+    "question": "¿Qué es el Transfer Learning en Deep Learning?",
     "category": "DL"
   },
   {
@@ -144,19 +144,19 @@
     "category": "DL"
   },
   {
-    "question": "¿Qué tipo de modelo de Deep Learning fue utilizado para que la IA AlphaGo venciera a los campeones de Go en 2016?",
+    "question": "Hablame sobre el Futuro y Tendencias en Deep Learning",
     "category": "DL"
   },
   {
-    "question": "¿Qué requiere el entrenamiento de un modelo robusto de lenguaje grande (LLM) en términos de recursos de potencia computacional?",
+    "question": "¿Qué son las redes neuronales recurrentes?",
     "category": "DL"
   },
   {
-    "question": "¿Qué tipo de contenido puede procesar un modelo multimodal?",
+    "question": "¿Cómo se evita el sobreajuste en Deep Learning?",
     "category": "DL"
   },
   {
-    "question": "¿Qué es la arquitectura BERT (Bidirectional Encoder Representations from Transformers)?",
+    "question": "¿Qué retos hay en el Deep Learning?",
     "category": "DL"
   },
   {
@@ -172,15 +172,15 @@
     "category": "E/R"
   },
   {
-    "question": "¿Qué busca la Ley 2502/2025 de Colombia en relación con el Código Penal y el fraude de identidad?",
+    "question": "¿Por qué es importante la privacidad en la IA?",
     "category": "E/R"
   },
   {
-    "question": "¿Qué requisito deben cumplir los Sistemas de Inteligencia Artificial de alto riesgo según la clasificación del Proyecto de Ley?",
+    "question": "Hablame sobre la ley de inteligencia artificial de la unión europea (UE)",
     "category": "E/R"
   },
   {
-    "question": "¿Qué entidad es designada como la Autoridad Nacional para la Inteligencia Artificial en el Proyecto de Ley radicado por MinCiencias en mayo de 2025?",
+    "question": "Hablame sobre la ética en la IA",
     "category": "E/R"
   },
   {
@@ -188,11 +188,11 @@
     "category": "E/R"
   },
   {
-    "question": "¿Qué se entiende por \"Ethics by Design\" (Ética desde el Diseño) en el desarrollo de sistemas de IA?",
+    "question": "¿Qué se entiende por \"Ethics by Design\" (Ética desde el Diseño)?",
     "category": "E/R"
   },
   {
-    "question": "¿Qué se entiende por la \"responsabilidad penal en IA\" según el Proyecto de Ley radicado en el Senado?",
+    "question": "Hablame sobre los modelos regulatorios de IA en estados unidos y china",
     "category": "E/R"
   },
   {
@@ -200,43 +200,43 @@
     "category": "E/R"
   },
   {
-    "question": "Menciona una de las aplicaciones prácticas de la IA en el sector salud para la atención a pacientes.",
+    "question": "¿Cómo ha ayudado la inteligencia artificial al avance de la robótica autónoma?",
     "category": "A"
   },
   {
-    "question": "¿Cómo contribuye la IA en la optimización de la cadena de suministro y la logística para el sector empresarial colombiano?",
+    "question": "Hablame sobre los sistemas expertos",
     "category": "A"
   },
   {
-    "question": "¿Qué tipo de programas académicos se espera que cree la Facultad de Inteligencia Artificial e Ingenierías de la Universidad de Caldas, según el rector?",
+    "question": "¿Qué tipo de programas académicos se espera que cree la Facultad de Inteligencia Artificial e Ingenierías de la Universidad de Caldas?",
     "category": "A"
   },
   {
-    "question": "¿Cuál es la Misión de la Facultad de Ingeniería de la Universidad de Caldas?",
+    "question": "¿Cuál es la oferta académica de la Facultad de Ingeniería de la Universidad de Caldas?",
     "category": "A"
   },
   {
-    "question": "¿De qué manera puede la IA impulsar la productividad y competitividad en el sector agrícola colombiano?",
+    "question": "¿Qué impacto ha tenido la IA generativa en la creación de contenido y qué retos éticos plantea?",
     "category": "A"
   },
   {
-    "question": "¿Cuál es el campo laboral de un profesional de la Ingeniería en Inteligencia Artificial de la Universidad de Caldas relacionado con la gobernanza?",
+    "question": "¿Con que espacios cuenta la Universidad de Caldas para IA?",
     "category": "A"
   },
   {
-    "question": "¿Cómo se utiliza la IA para la detección de fraudes en el sector bancario y financiero?",
+    "question": "¿Cómo ha mejorado la inteligencia artificial el diagnóstico y tratamiento en el sector salud?",
     "category": "A"
   },
   {
-    "question": "¿Qué aplicaciones de IA en el sector público buscan fortalecer el vínculo Estado-Ciudadanía en Colombia?",
+    "question": "¿Cuáles problemas éticos tienen los LLMs?",
     "category": "A"
   },
   {
-    "question": "¿Cuál es el costo total estimado de la Política Nacional de Inteligencia Artificial (CONPES 4144) hasta 2030?",
+    "question": "¿Cómo ayuda la inteligencia artificial a mejorar la productividad y el cuidado de los cultivos en la agricultura?",
     "category": "A"
   },
   {
-    "question": "¿Qué es la Automatización Robótica de Procesos (RPA) y cómo se relaciona con la IA?",
+    "question": "¿En qué áreas aplica la Facultad la inteligencia artificial para resolver problemáticas regionales y globales?",
     "category": "A"
   }
 ]

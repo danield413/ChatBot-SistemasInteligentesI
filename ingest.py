@@ -15,7 +15,7 @@ load_dotenv()
 API_KEY = os.getenv("CHROMA_API_KEY")
 TENANT = os.getenv("CHROMA_TENANT")
 DATABASE_NAME = os.getenv("CHROMA_DATABASE", "ChatBotSI")
-COLLECTION_NAME = os.getenv("CHROMA_COLLECTION_NAME", "ai_documents")
+COLLECTION_NAME = "IA_DOCS"
 MAX_BATCH_SIZE = int(os.getenv("MAX_BATCH_SIZE", "300"))
 
 # Validar que las variables existan
