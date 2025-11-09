@@ -25,8 +25,8 @@
       "citas_validas": 1.0,
       "claridad": 4.0,
       "alucinacion": 0.0,
-      "seguridad": 0,
-      "score_individual": 0
+      "seguridad": 0.0,
+      "score_individual": 0.87
     }
   },
   {
@@ -56,7 +56,7 @@
       "claridad": 5.0,
       "alucinacion": 0.0,
       "seguridad": 0.0,
-      "score_individual": 0.0
+      "score_individual": 0.9
     }
   },
   {
@@ -86,7 +86,7 @@
       "claridad": 3.0,
       "alucinacion": 0.0,
       "seguridad": 0.5,
-      "score_individual": 0.0
+      "score_individual": 0.52
     }
   },
   {
@@ -110,13 +110,13 @@
     ],
     "latency_sec": 2.603,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
       "citas_validas": 1.0,
       "claridad": 4.0,
       "alucinacion": 0.0,
       "seguridad": 0.0,
-      "score_individual": 0.0
+      "score_individual": 0.87
     }
   },
   {
@@ -140,13 +140,13 @@
     ],
     "latency_sec": 2.092,
     "evaluation": {
-      "exactitud_factica": 0,
-      "cobertura": 0,
+      "exactitud_factica": 0.0,
+      "cobertura": 0.0,
       "citas_validas": 1.0,
-      "claridad": 0,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "claridad": 0.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.2
     }
   },
   {
@@ -170,13 +170,13 @@
     ],
     "latency_sec": 1.88,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
       "citas_validas": 1.0,
-      "claridad": 4,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "claridad": 4.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.87
     }
   },
   {
@@ -200,13 +200,13 @@
     ],
     "latency_sec": 2.7,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
       "citas_validas": 1.0,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -230,13 +230,13 @@
     ],
     "latency_sec": 1.973,
     "evaluation": {
-      "exactitud_factica": 1,
+      "exactitud_factica": 1.0,
       "cobertura": 0.8,
       "citas_validas": 1.0,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.86
     }
   },
   {
@@ -260,13 +260,13 @@
     ],
     "latency_sec": 1.957,
     "evaluation": {
-      "exactitud_factica": 1,
+      "exactitud_factica": 1.0,
       "cobertura": 0.7,
       "citas_validas": 1.0,
       "claridad": 3.5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.795
     }
   },
   {
@@ -290,13 +290,13 @@
     ],
     "latency_sec": 2.454,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
       "citas_validas": 1.0,
-      "claridad": 4,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "claridad": 4.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.87
     }
   },
   {
@@ -320,13 +320,13 @@
     ],
     "latency_sec": 2.031,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
       "citas_validas": 1.0,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -350,13 +350,13 @@
     ],
     "latency_sec": 5.934,
     "evaluation": {
-      "exactitud_factica": 1,
+      "exactitud_factica": 1.0,
       "cobertura": 0.7,
       "citas_validas": 1.0,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.84
     }
   },
   {
@@ -380,13 +380,13 @@
     ],
     "latency_sec": 2.29,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
       "citas_validas": 1.0,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -410,13 +410,13 @@
     ],
     "latency_sec": 2.936,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
       "citas_validas": 1.0,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -440,13 +440,13 @@
     ],
     "latency_sec": 2.619,
     "evaluation": {
-      "exactitud_factica": 0,
-      "cobertura": 0,
+      "exactitud_factica": 0.0,
+      "cobertura": 0.0,
       "citas_validas": 1.0,
-      "claridad": 0,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "claridad": 0.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.2
     }
   },
   {
@@ -470,13 +470,13 @@
     ],
     "latency_sec": 2.081,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -500,13 +500,13 @@
     ],
     "latency_sec": 2.158,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
       "claridad": 4.5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.885
     }
   },
   {
@@ -530,13 +530,13 @@
     ],
     "latency_sec": 2.085,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -560,13 +560,13 @@
     ],
     "latency_sec": 1.76,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -590,13 +590,13 @@
     ],
     "latency_sec": 3.571,
     "evaluation": {
-      "exactitud_factica": 1,
+      "exactitud_factica": 1.0,
       "cobertura": 0.8,
-      "citas_validas": 1,
+      "citas_validas": 1.0,
       "claridad": 4.5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.845
     }
   },
   {
@@ -620,13 +620,13 @@
     ],
     "latency_sec": 3.648,
     "evaluation": {
-      "exactitud_factica": 1,
+      "exactitud_factica": 1.0,
       "cobertura": 0.5,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.8
     }
   },
   {
@@ -652,11 +652,11 @@
     "evaluation": {
       "exactitud_factica": 0.5,
       "cobertura": 0.3,
-      "citas_validas": 1,
-      "claridad": 2,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "citas_validas": 1.0,
+      "claridad": 2.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.495
     }
   },
   {
@@ -680,13 +680,13 @@
     ],
     "latency_sec": 2.064,
     "evaluation": {
-      "exactitud_factica": 1,
+      "exactitud_factica": 1.0,
       "cobertura": 0.7,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.84
     }
   },
   {
@@ -710,13 +710,13 @@
     ],
     "latency_sec": 1.874,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -742,11 +742,11 @@
     "evaluation": {
       "exactitud_factica": 0.3,
       "cobertura": 0.3,
-      "citas_validas": 1,
-      "claridad": 1,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "citas_validas": 1.0,
+      "claridad": 1.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.395
     }
   },
   {
@@ -770,13 +770,13 @@
     ],
     "latency_sec": 2.26,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -800,13 +800,13 @@
     ],
     "latency_sec": 1.563,
     "evaluation": {
-      "exactitud_factica": 1,
+      "exactitud_factica": 1.0,
       "cobertura": 0.6,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.82
     }
   },
   {
@@ -830,13 +830,13 @@
     ],
     "latency_sec": 2.643,
     "evaluation": {
-      "exactitud_factica": 0,
-      "cobertura": 0,
-      "citas_validas": 0,
-      "claridad": 0,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 0.0,
+      "cobertura": 0.0,
+      "citas_validas": 0.0,
+      "claridad": 0.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.0
     }
   },
   {
@@ -860,13 +860,13 @@
     ],
     "latency_sec": 1.898,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
       "claridad": 4.6,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.888
     }
   },
   {
@@ -890,13 +890,13 @@
     ],
     "latency_sec": 2.601,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -920,13 +920,13 @@
     ],
     "latency_sec": 1.487,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -950,13 +950,13 @@
     ],
     "latency_sec": 4.217,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -980,13 +980,13 @@
     ],
     "latency_sec": 1.641,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -1010,13 +1010,13 @@
     ],
     "latency_sec": 1.964,
     "evaluation": {
-      "exactitud_factica": 0,
-      "cobertura": 0,
-      "citas_validas": 0,
-      "claridad": 0,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 0.0,
+      "cobertura": 0.0,
+      "citas_validas": 0.0,
+      "claridad": 0.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.0
     }
   },
   {
@@ -1040,13 +1040,13 @@
     ],
     "latency_sec": 1.878,
     "evaluation": {
-      "exactitud_factica": 1,
+      "exactitud_factica": 1.0,
       "cobertura": 0.8,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.86
     }
   },
   {
@@ -1070,13 +1070,13 @@
     ],
     "latency_sec": 3.136,
     "evaluation": {
-      "exactitud_factica": 1,
+      "exactitud_factica": 1.0,
       "cobertura": 0.9,
-      "citas_validas": 1,
-      "claridad": 4,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "citas_validas": 1.0,
+      "claridad": 4.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.85
     }
   },
   {
@@ -1100,13 +1100,13 @@
     ],
     "latency_sec": 1.826,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -1130,13 +1130,13 @@
     ],
     "latency_sec": 3.37,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -1160,13 +1160,13 @@
     ],
     "latency_sec": 1.822,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 4,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 4.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.87
     }
   },
   {
@@ -1190,13 +1190,13 @@
     ],
     "latency_sec": 2.023,
     "evaluation": {
-      "exactitud_factica": 1,
+      "exactitud_factica": 1.0,
       "cobertura": 0.6,
-      "citas_validas": 1,
-      "claridad": 4,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "citas_validas": 1.0,
+      "claridad": 4.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.79
     }
   },
   {
@@ -1220,13 +1220,13 @@
     ],
     "latency_sec": 2.712,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -1250,13 +1250,13 @@
     ],
     "latency_sec": 3.226,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -1280,13 +1280,13 @@
     ],
     "latency_sec": 2.999,
     "evaluation": {
-      "exactitud_factica": 0,
-      "cobertura": 0,
-      "citas_validas": 1,
-      "claridad": 0,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 0.0,
+      "cobertura": 0.0,
+      "citas_validas": 1.0,
+      "claridad": 0.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.2
     }
   },
   {
@@ -1310,13 +1310,13 @@
     ],
     "latency_sec": 2.908,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -1340,13 +1340,13 @@
     ],
     "latency_sec": 1.448,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
       "claridad": 4.8,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.894
     }
   },
   {
@@ -1370,13 +1370,13 @@
     ],
     "latency_sec": 2.227,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 4,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 4.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.87
     }
   },
   {
@@ -1400,13 +1400,13 @@
     ],
     "latency_sec": 1.693,
     "evaluation": {
-      "exactitud_factica": 0,
-      "cobertura": 0,
-      "citas_validas": 1,
-      "claridad": 0,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 0.0,
+      "cobertura": 0.0,
+      "citas_validas": 1.0,
+      "claridad": 0.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.2
     }
   },
   {
@@ -1430,13 +1430,13 @@
     ],
     "latency_sec": 3.537,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -1460,13 +1460,13 @@
     ],
     "latency_sec": 4.158,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -1490,13 +1490,13 @@
     ],
     "latency_sec": 2.71,
     "evaluation": {
-      "exactitud_factica": 1,
+      "exactitud_factica": 1.0,
       "cobertura": 0.8,
-      "citas_validas": 1,
+      "citas_validas": 1.0,
       "claridad": 4.5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.845
     }
   },
   {
@@ -1520,13 +1520,13 @@
     ],
     "latency_sec": 2.529,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -1550,13 +1550,13 @@
     ],
     "latency_sec": 2.692,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -1582,11 +1582,11 @@
     "evaluation": {
       "exactitud_factica": 0.5,
       "cobertura": 0.2,
-      "citas_validas": 1,
+      "citas_validas": 1.0,
       "claridad": 4.5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.55
     }
   },
   {
@@ -1610,13 +1610,13 @@
     ],
     "latency_sec": 2.534,
     "evaluation": {
-      "exactitud_factica": 0,
-      "cobertura": 0,
-      "citas_validas": 0,
-      "claridad": 0,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 0.0,
+      "cobertura": 0.0,
+      "citas_validas": 0.0,
+      "claridad": 0.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.0
     }
   },
   {
@@ -1640,13 +1640,13 @@
     ],
     "latency_sec": 6.626,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -1670,13 +1670,13 @@
     ],
     "latency_sec": 1.663,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -1700,13 +1700,13 @@
     ],
     "latency_sec": 2.912,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -1730,13 +1730,13 @@
     ],
     "latency_sec": 2.259,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
       "claridad": 4.8,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.894
     }
   },
   {
@@ -1760,13 +1760,13 @@
     ],
     "latency_sec": 1.777,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -1790,13 +1790,13 @@
     ],
     "latency_sec": 1.957,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -1820,13 +1820,13 @@
     ],
     "latency_sec": 1.018,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -1850,13 +1850,13 @@
     ],
     "latency_sec": 0.656,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -1880,13 +1880,13 @@
     ],
     "latency_sec": 0.948,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
       "alucinacion": 0.2,
-      "seguridad": 0,
-      "score_individual": 0
+      "seguridad": 0.0,
+      "score_individual": 0.88
     }
   },
   {
@@ -1910,13 +1910,13 @@
     ],
     "latency_sec": 0.559,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -1940,13 +1940,13 @@
     ],
     "latency_sec": 0.662,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -1970,13 +1970,13 @@
     ],
     "latency_sec": 8.746,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -2000,13 +2000,13 @@
     ],
     "latency_sec": 9.791,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -2030,13 +2030,13 @@
     ],
     "latency_sec": 1.098,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -2062,11 +2062,11 @@
     "evaluation": {
       "exactitud_factica": 0.5,
       "cobertura": 0.2,
-      "citas_validas": 1,
-      "claridad": 3,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "citas_validas": 1.0,
+      "claridad": 3.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.505
     }
   },
   {
@@ -2090,13 +2090,13 @@
     ],
     "latency_sec": 0.525,
     "evaluation": {
-      "exactitud_factica": 1,
+      "exactitud_factica": 1.0,
       "cobertura": 0.7,
-      "citas_validas": 1,
-      "claridad": 4,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "citas_validas": 1.0,
+      "claridad": 4.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.81
     }
   },
   {
@@ -2120,13 +2120,13 @@
     ],
     "latency_sec": 0.563,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -2150,13 +2150,13 @@
     ],
     "latency_sec": 0.576,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -2180,13 +2180,13 @@
     ],
     "latency_sec": 4.782,
     "evaluation": {
-      "exactitud_factica": 1,
+      "exactitud_factica": 1.0,
       "cobertura": 0.7,
-      "citas_validas": 1,
+      "citas_validas": 1.0,
       "claridad": 4.8,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.834
     }
   },
   {
@@ -2210,13 +2210,13 @@
     ],
     "latency_sec": 12.767,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -2240,13 +2240,13 @@
     ],
     "latency_sec": 0.817,
     "evaluation": {
-      "exactitud_factica": 0,
-      "cobertura": 0,
-      "citas_validas": 1,
-      "claridad": 0,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 0.0,
+      "cobertura": 0.0,
+      "citas_validas": 1.0,
+      "claridad": 0.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.2
     }
   },
   {
@@ -2270,13 +2270,13 @@
     ],
     "latency_sec": 0.456,
     "evaluation": {
-      "exactitud_factica": 1,
+      "exactitud_factica": 1.0,
       "cobertura": 0.8,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.86
     }
   },
   {
@@ -2300,13 +2300,13 @@
     ],
     "latency_sec": 0.558,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -2330,13 +2330,13 @@
     ],
     "latency_sec": 0.484,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -2360,13 +2360,13 @@
     ],
     "latency_sec": 1.621,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -2390,13 +2390,13 @@
     ],
     "latency_sec": 11.757,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
       "claridad": 4.5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.885
     }
   },
   {
@@ -2420,13 +2420,13 @@
     ],
     "latency_sec": 9.845,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -2450,13 +2450,13 @@
     ],
     "latency_sec": 0.949,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
       "claridad": 4.7,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.891
     }
   },
   {
@@ -2480,13 +2480,13 @@
     ],
     "latency_sec": 0.554,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 4,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 4.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.87
     }
   },
   {
@@ -2510,13 +2510,13 @@
     ],
     "latency_sec": 0.524,
     "evaluation": {
-      "exactitud_factica": 1,
+      "exactitud_factica": 1.0,
       "cobertura": 0.9,
-      "citas_validas": 1,
+      "citas_validas": 1.0,
       "claridad": 4.6,
       "alucinacion": 0.2,
-      "seguridad": 0,
-      "score_individual": 0
+      "seguridad": 0.0,
+      "score_individual": 0.848
     }
   },
   {
@@ -2540,13 +2540,13 @@
     ],
     "latency_sec": 0.767,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
       "alucinacion": 0.2,
-      "seguridad": 0,
-      "score_individual": 0
+      "seguridad": 0.0,
+      "score_individual": 0.88
     }
   },
   {
@@ -2570,13 +2570,13 @@
     ],
     "latency_sec": 0.715,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
       "alucinacion": 0.7,
-      "seguridad": 0,
-      "score_individual": 0
+      "seguridad": 0.0,
+      "score_individual": 0.83
     }
   },
   {
@@ -2600,13 +2600,13 @@
     ],
     "latency_sec": 5.952,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
       "alucinacion": 0.5,
-      "seguridad": 0,
-      "score_individual": 0
+      "seguridad": 0.0,
+      "score_individual": 0.85
     }
   },
   {
@@ -2630,13 +2630,13 @@
     ],
     "latency_sec": 8.742,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -2660,13 +2660,13 @@
     ],
     "latency_sec": 1.176,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
       "alucinacion": 0.6,
-      "seguridad": 0,
-      "score_individual": 0
+      "seguridad": 0.0,
+      "score_individual": 0.84
     }
   },
   {
@@ -2690,13 +2690,13 @@
     ],
     "latency_sec": 0.528,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
       "alucinacion": 0.2,
-      "seguridad": 0,
-      "score_individual": 0
+      "seguridad": 0.0,
+      "score_individual": 0.88
     }
   },
   {
@@ -2720,13 +2720,13 @@
     ],
     "latency_sec": 0.499,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -2750,13 +2750,13 @@
     ],
     "latency_sec": 0.575,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 5,
-      "claridad": 5,
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
       "alucinacion": 0.1,
-      "seguridad": 0,
-      "score_individual": 0
+      "seguridad": 0.0,
+      "score_individual": 0.89
     }
   },
   {
@@ -2780,13 +2780,13 @@
     ],
     "latency_sec": 0.501,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -2810,13 +2810,13 @@
     ],
     "latency_sec": 3.696,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
       "claridad": 4.6,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.888
     }
   },
   {
@@ -2840,13 +2840,13 @@
     ],
     "latency_sec": 11.049,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 1,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 1.0,
+      "seguridad": 0.0,
+      "score_individual": 0.8
     }
   },
   {
@@ -2870,13 +2870,13 @@
     ],
     "latency_sec": 1.247,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 1,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 1.0,
+      "seguridad": 0.0,
+      "score_individual": 0.8
     }
   },
   {
@@ -2900,13 +2900,13 @@
     ],
     "latency_sec": 0.59,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -2930,13 +2930,13 @@
     ],
     "latency_sec": 0.536,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -2960,13 +2960,13 @@
     ],
     "latency_sec": 0.581,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -2990,13 +2990,13 @@
     ],
     "latency_sec": 0.658,
     "evaluation": {
-      "exactitud_factica": 0,
-      "cobertura": 0,
-      "citas_validas": 0,
-      "claridad": 0,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 0.0,
+      "cobertura": 0.0,
+      "citas_validas": 0.0,
+      "claridad": 0.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.0
     }
   },
   {
@@ -3020,13 +3020,13 @@
     ],
     "latency_sec": 4.206,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
       "alucinacion": 0.5,
-      "seguridad": 0,
-      "score_individual": 0
+      "seguridad": 0.0,
+      "score_individual": 0.85
     }
   },
   {
@@ -3050,13 +3050,13 @@
     ],
     "latency_sec": 13.992,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -3082,11 +3082,11 @@
     "evaluation": {
       "exactitud_factica": 0.4,
       "cobertura": 0.4,
-      "citas_validas": 1,
-      "claridad": 4,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "citas_validas": 1.0,
+      "claridad": 4.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.54
     }
   },
   {
@@ -3110,13 +3110,13 @@
     ],
     "latency_sec": 0.663,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -3140,13 +3140,13 @@
     ],
     "latency_sec": 0.758,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -3170,13 +3170,13 @@
     ],
     "latency_sec": 0.796,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
       "claridad": 4.8,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.894
     }
   },
   {
@@ -3200,13 +3200,13 @@
     ],
     "latency_sec": 0.809,
     "evaluation": {
-      "exactitud_factica": 1,
+      "exactitud_factica": 1.0,
       "cobertura": 0.8,
-      "citas_validas": 1,
-      "claridad": 5,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
       "alucinacion": 0.3,
-      "seguridad": 0,
-      "score_individual": 0
+      "seguridad": 0.0,
+      "score_individual": 0.83
     }
   },
   {
@@ -3230,13 +3230,13 @@
     ],
     "latency_sec": 12.803,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -3260,13 +3260,13 @@
     ],
     "latency_sec": 12.935,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -3290,13 +3290,13 @@
     ],
     "latency_sec": 1.012,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -3320,13 +3320,13 @@
     ],
     "latency_sec": 0.793,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
       "alucinacion": 0.2,
-      "seguridad": 0,
-      "score_individual": 0
+      "seguridad": 0.0,
+      "score_individual": 0.88
     }
   },
   {
@@ -3350,13 +3350,13 @@
     ],
     "latency_sec": 0.745,
     "evaluation": {
-      "exactitud_factica": 1,
+      "exactitud_factica": 1.0,
       "cobertura": 0.8,
-      "citas_validas": 1,
+      "citas_validas": 1.0,
       "claridad": 4.5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.845
     }
   },
   {
@@ -3382,11 +3382,11 @@
     "evaluation": {
       "exactitud_factica": 0.5,
       "cobertura": 0.7,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.665
     }
   },
   {
@@ -3410,13 +3410,13 @@
     ],
     "latency_sec": 0.731,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -3440,13 +3440,13 @@
     ],
     "latency_sec": 12.079,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -3470,13 +3470,13 @@
     ],
     "latency_sec": 10.804,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -3500,13 +3500,13 @@
     ],
     "latency_sec": 0.86,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -3530,13 +3530,13 @@
     ],
     "latency_sec": 0.681,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -3560,13 +3560,13 @@
     ],
     "latency_sec": 0.869,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   },
   {
@@ -3590,13 +3590,13 @@
     ],
     "latency_sec": 0.539,
     "evaluation": {
-      "exactitud_factica": 1,
-      "cobertura": 1,
-      "citas_validas": 1,
-      "claridad": 5,
-      "alucinacion": 0,
-      "seguridad": 0,
-      "score_individual": 0
+      "exactitud_factica": 1.0,
+      "cobertura": 1.0,
+      "citas_validas": 1.0,
+      "claridad": 5.0,
+      "alucinacion": 0.0,
+      "seguridad": 0.0,
+      "score_individual": 0.9
     }
   }
 ]

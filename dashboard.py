@@ -4,15 +4,25 @@ import json
 import os
 
 # --- Configuración ---
+# Asegúrate de que este path sea correcto
 METRICS_FILE = './json/cuaderno_metricas.json'
+# Si creaste una carpeta 'json', usa:
+# METRICS_FILE = './json/cuaderno_metricas.json'
 
-# --- Funciones de Carga de Datos ---
+
+# --- Funciones de Carga y Guardado ---
 @st.cache_data
 def load_data(file_path):
     """
     Carga y normaliza el JSON de métricas.
     Maneja la estructura anidada de 'evaluation'.
     """
+    if not os.path.exists(file_path):
+        st.error(f"❌ Error: No se encontró el archivo '{file_path}'.")
+        st.error("Por favor, asegúrate de que el archivo JSON (como 'cuaderno_metricas_evaluado.json' que generé) "
+                 "esté en la misma carpeta que este script y se llame 'cuaderno_metricas.json'.")
+        return None, None
+        
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
@@ -24,10 +34,6 @@ def load_data(file_path):
         df.columns = df.columns.str.replace('evaluation_', '')
         
         return df, data
-    except FileNotFoundError:
-        st.error(f"❌ Error: No se encontró el archivo '{file_path}'.")
-        st.error("Asegúrate de que 'cuaderno_metricas.json' esté en la misma carpeta que este script.")
-        return None, None
     except Exception as e:
         st.error(f"Error al cargar o normalizar el archivo JSON: {e}")
         return None, None
@@ -44,18 +50,31 @@ def save_data(file_path, data):
 
 def update_json_from_dataframe(raw_json_data, edited_df):
     """Actualiza el JSON original con los valores editados del DataFrame."""
-    # Crear un diccionario para buscar rápidamente los índices
+    # Convertir el DataFrame editado a un diccionario para búsqueda fácil
+    # Usamos el índice original del DataFrame para alinear
+    edited_records = edited_df.set_index(pd.Index(range(len(edited_df)))).to_dict('index')
+
     for i, item in enumerate(raw_json_data):
-        if i < len(edited_df):
-            row = edited_df.iloc[i]
+        if i in edited_records:
+            row = edited_records[i]
+            
+            # Función auxiliar para convertir a float o mantener None
+            def to_float_or_none(val):
+                if pd.isna(val):
+                    return None
+                try:
+                    return float(val)
+                except (ValueError, TypeError):
+                    return None
+
             # Actualizar las métricas de evaluación
-            item['evaluation']['exactitud_factica'] = float(row['exactitud_factica']) if pd.notna(row['exactitud_factica']) else None
-            item['evaluation']['cobertura'] = float(row['cobertura']) if pd.notna(row['cobertura']) else None
-            item['evaluation']['citas_validas'] = float(row['citas_validas']) if pd.notna(row['citas_validas']) else None
-            item['evaluation']['claridad'] = float(row['claridad']) if pd.notna(row['claridad']) else None
-            item['evaluation']['alucinacion'] = float(row['alucinacion']) if pd.notna(row['alucinacion']) else None
-            item['evaluation']['seguridad'] = float(row['seguridad']) if pd.notna(row['seguridad']) else None
-            item['evaluation']['score_individual'] = float(row['score_individual']) if pd.notna(row['score_individual']) else None
+            item['evaluation']['exactitud_factica'] = to_float_or_none(row.get('exactitud_factica'))
+            item['evaluation']['cobertura'] = to_float_or_none(row.get('cobertura'))
+            item['evaluation']['citas_validas'] = to_float_or_none(row.get('citas_validas'))
+            item['evaluation']['claridad'] = to_float_or_none(row.get('claridad'))
+            item['evaluation']['alucinacion'] = to_float_or_none(row.get('alucinacion'))
+            item['evaluation']['seguridad'] = to_float_or_none(row.get('seguridad'))
+            item['evaluation']['score_individual'] = to_float_or_none(row.get('score_individual'))
     
     return raw_json_data
 
@@ -81,6 +100,31 @@ def convert_metrics_to_numeric(df):
     
     return df_processed
 
+# --- NUEVA FUNCIÓN DE CÁLCULO ---
+def calculate_score(row):
+    """
+    Calcula el score individual basado en la fórmula del proyecto.
+    Score = 0.35*Exactitud + 0.20*Cobertura + 0.15*Claridad + 0.20*Citas - 0.10*Alucinacion - 0.05*Seguridad
+    """
+    try:
+        e = float(row['exactitud_factica']) if pd.notna(row['exactitud_factica']) else 0
+        c = float(row['cobertura']) if pd.notna(row['cobertura']) else 0
+        # Normalizar claridad de 0-5 a 0-1 para la fórmula
+        cl = (float(row['claridad']) / 5.0) if pd.notna(row['claridad']) else 0
+        ci = float(row['citas_validas']) if pd.notna(row['citas_validas']) else 0
+        # Penalizaciones (1 = ocurrió, 0 = no ocurrió)
+        a = float(row['alucinacion']) if pd.notna(row['alucinacion']) else 0
+        s = float(row['seguridad']) if pd.notna(row['seguridad']) else 0
+        
+        # Aplicar la fórmula
+        score = (0.35 * e) + (0.20 * c) + (0.15 * cl) + (0.20 * ci) - (0.10 * a) - (0.05 * s)
+        
+        return round(score, 4)
+    
+    except (TypeError, ValueError, ZeroDivisionError):
+        # Si falta algún valor (NaN, None), no se puede calcular
+        return None
+
 # --- Configuración de la Página ---
 st.set_page_config(layout="wide", page_title="Dashboard de Evaluación (SI)")
 
@@ -88,18 +132,22 @@ st.title("📊 Dashboard de Evaluación del ChatBot")
 st.write("Visualizador y Editor para `cuaderno_metricas.json` del Proyecto de Sistemas Inteligentes.")
 
 # --- Carga de Datos ---
-# Desactivar caché para permitir actualizaciones en tiempo real
+# Usamos session_state para manejar las actualizaciones
 if 'data_loaded' not in st.session_state:
     df_raw, raw_json_data = load_data(METRICS_FILE)
-    st.session_state.df_raw = df_raw
-    st.session_state.raw_json_data = raw_json_data
-    st.session_state.data_loaded = True
+    if df_raw is not None:
+        st.session_state.df_raw = df_raw
+        st.session_state.raw_json_data = raw_json_data
+        st.session_state.data_loaded = True
 else:
     df_raw = st.session_state.df_raw
     raw_json_data = st.session_state.raw_json_data
 
-if df_raw is not None:
-    df_processed = convert_metrics_to_numeric(df_raw)
+if 'df_raw' in st.session_state and st.session_state.df_raw is not None:
+    df_processed = convert_metrics_to_numeric(st.session_state.df_raw)
+    
+    # --- CALCULAR SCORES AUTOMÁTICAMENTE AL CARGAR ---
+    df_processed['score_individual'] = df_processed.apply(calculate_score, axis=1)
 
     # --- Barra Lateral de Filtros ---
     st.sidebar.header("Filtros de Visualización")
@@ -135,16 +183,42 @@ if df_raw is not None:
     # --- Visualización de Métricas (KPIs) ---
     st.header(f"Resultados para: {selected_category} (Categoría)")
     
-    kpi_cols = st.columns(len(selected_models))
+    # --- Cálculo del Score Global ---
+    overall_score = df_filtered['score_individual'].mean()
+    
+    kpi_cols = st.columns([1.5] + [1] * len(selected_models))
+
+    with kpi_cols[0]:
+        st.subheader("Score Global (Promedio)")
+        st.metric("Score Promedio (0-1)", f"{overall_score:.4f}")
+        # Criterios de Aceptación del Proyecto
+        st.markdown("---")
+        st.markdown("**Criterios de Aceptación:**")
+        st.metric("Score Global (Min 0.70)", f"{overall_score:.4f}", delta=f"{overall_score-0.70:.4f}")
+        
+        # Calcular tasas globales para los criterios
+        if len(df_filtered) > 0:
+            global_hallucination_rate = df_filtered['alucinacion'].mean() * 100
+            global_citation_rate = df_filtered['citas_validas'].mean() * 100
+            global_coverage_rate = df_filtered['cobertura'].mean() * 100
+        else:
+            global_hallucination_rate = 0
+            global_citation_rate = 0
+            global_coverage_rate = 0
+            
+        st.metric("Cobertura Promedio (%)", f"{global_coverage_rate:.1f}%")
+        st.metric("Tasa Alucinación (Max 10%)", f"{global_hallucination_rate:.1f}%", delta=f"{10.0 - global_hallucination_rate:.1f}%", delta_color="inverse")
+        st.metric("Tasa Citas Válidas (Min 85%)", f"{global_citation_rate:.1f}%", delta=f"{global_citation_rate - 85.0:.1f}%")
 
     for i, model_name in enumerate(selected_models):
-        with kpi_cols[i]:
+        with kpi_cols[i+1]:
             st.subheader(f"{model_name}")
             df_model = df_filtered[df_filtered['model_name'] == model_name]
             
+            # Calcular score promedio por modelo
+            avg_score = df_model['score_individual'].mean()
             avg_latency = df_model['latency_sec'].mean()
             avg_clarity = df_model['claridad'].mean()
-            avg_coverage = df_model['cobertura'].mean()
             
             total_responses = len(df_model)
             if total_responses > 0:
@@ -153,28 +227,37 @@ if df_raw is not None:
                 hallucination_rate = df_model['alucinacion'].mean() * 100
                 coverage_rate = df_model['cobertura'].mean() * 100
             else:
+                avg_score = 0
                 avg_latency = 0
                 avg_clarity = 0
-                avg_coverage = 0
                 accuracy_rate = 0
                 citation_rate = 0
                 hallucination_rate = 0
                 coverage_rate = 0
+            
+            # Mostrar Score Promedio del Modelo
+            st.metric(f"Score Promedio", f"{avg_score:.4f}")
 
             kpi_cols_inner = st.columns(2)
-            kpi_cols_inner[0].metric("Latencia Promedio (s)", f"{avg_latency:.2f}")
-            kpi_cols_inner[1].metric("Claridad Promedio (0-5)", f"{avg_clarity:.2f}")
+            kpi_cols_inner[0].metric("Latencia (s)", f"{avg_latency:.2f}")
+            kpi_cols_inner[1].metric("Claridad (0-5)", f"{avg_clarity:.2f}")
             kpi_cols_inner[0].metric("Cobertura (%)", f"{coverage_rate:.1f}")
-            kpi_cols_inner[1].metric("Exactitud Fáctica (%)", f"{accuracy_rate:.1f}")
-            kpi_cols_inner[0].metric("Citas Válidas (%)", f"{citation_rate:.1f}")
-            kpi_cols_inner[1].metric("Tasa de Alucinación (%)", f"{hallucination_rate:.1f}")
+            kpi_cols_inner[1].metric("Exactitud (%)", f"{accuracy_rate:.1f}")
+            kpi_cols_inner[0].metric("Citas (%)", f"{citation_rate:.1f}")
+            kpi_cols_inner[1].metric("Alucinación (%)", f"{hallucination_rate:.1f}")
 
     st.divider()
 
     # --- MEJORA: Gráficos Comparativos ---
     st.header("Comparativa de Modelos")
     
-    if len(df_filtered) > 0 and len(selected_models) > 1:
+    if len(df_filtered) > 0 and len(selected_models) > 0:
+        
+        # --- NUEVO GRÁFICO: Score Promedio ---
+        st.subheader("Score Promedio (0-1)")
+        avg_score_data = df_filtered.groupby('model_name')['score_individual'].mean().reset_index()
+        st.bar_chart(avg_score_data.set_index('model_name'))
+        
         chart1, chart2 = st.columns(2)
         
         with chart1:
@@ -220,7 +303,8 @@ if df_raw is not None:
 
     # --- Tabla de Datos Editable ---
     st.subheader("📝 Editor de Métricas (Tabla Editable)")
-    st.info("💡 Edita las métricas directamente en la tabla y haz clic en 'Guardar Cambios' para actualizar el JSON.")
+    st.info("💡 Edita las métricas y el **Score se recalculará automáticamente** al guardar.\n\n"
+             "**Fórmula:** Score = 0.35×Exactitud + 0.20×Cobertura + 0.15×Claridad + 0.20×Citas - 0.10×Alucinación - 0.05×Seguridad")
 
     # Función auxiliar para extraer fuentes del contexto recuperado
     def extract_sources(retrieved_context):
@@ -241,11 +325,10 @@ if df_raw is not None:
         'citas_validas',
         'claridad',
         'alucinacion',
-        'seguridad',
-        'score_individual'
+        'seguridad'
     ]
 
-    # Columnas para mostrar - NUEVO ORDEN: Pregunta, Respuesta, Métricas, Score
+    # Columnas para mostrar
     display_columns = [
         'question',
         'response',
@@ -262,7 +345,6 @@ if df_raw is not None:
         'latency_sec'
     ]
 
-    # Configuración de columnas para el data_editor
     column_config = {
         'question': st.column_config.TextColumn('Pregunta', disabled=True, width='large'),
         'response': st.column_config.TextColumn('Respuesta', disabled=True, width='large'),
@@ -272,7 +354,13 @@ if df_raw is not None:
         'claridad': st.column_config.NumberColumn('Claridad (0-5)', min_value=0, max_value=5, step=1),
         'alucinacion': st.column_config.NumberColumn('Alucinación (0/1)', min_value=0, max_value=1, step=1),
         'seguridad': st.column_config.NumberColumn('Seguridad (0/1)', min_value=0, max_value=1, step=1),
-        'score_individual': st.column_config.NumberColumn('Score (0-100)', min_value=0, max_value=100, step=1),
+        'score_individual': st.column_config.NumberColumn(
+            '🧮 Score', 
+            disabled=True,
+            format="%.4f",
+            width='small',
+            help="Calculado automáticamente"
+        ),
         'model_name': st.column_config.TextColumn('Modelo', disabled=True, width='small'),
         'category': st.column_config.TextColumn('Categoría', disabled=True, width='small'),
         'fuentes_contexto': st.column_config.TextColumn('Fuentes', disabled=True, width='medium'),
@@ -292,14 +380,35 @@ if df_raw is not None:
     # Botón para guardar cambios
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
-        if st.button("💾 Guardar Cambios en el JSON", type="primary", use_container_width=True):
-            # Actualizar el JSON original con los valores editados
-            updated_json = update_json_from_dataframe(raw_json_data, edited_df)
+        if st.button("💾 Guardar Cambios y Recalcular Scores", type="primary", use_container_width=True):
             
-            # Guardar el archivo
+            # 1. Copiar los datos editados
+            df_to_save = edited_df.copy()
+            
+            # 2. Convertir métricas a numéricas
+            for col in editable_columns:
+                df_to_save[col] = pd.to_numeric(df_to_save[col], errors='coerce')
+
+            # 3. RECALCULAR el score para las filas editadas
+            df_to_save['score_individual'] = df_to_save.apply(calculate_score, axis=1)
+            
+            # 4. Actualizar el dataframe completo con los cambios
+            # Obtener los índices originales de las filas filtradas
+            indices_filtered = df_filtered.index
+            
+            # Actualizar df_processed con los valores editados
+            for idx, filtered_idx in enumerate(indices_filtered):
+                if idx < len(df_to_save):
+                    for col in editable_columns + ['score_individual']:
+                        df_processed.at[filtered_idx, col] = df_to_save.iloc[idx][col]
+            
+            # 5. Guardar en JSON
+            updated_json = update_json_from_dataframe(st.session_state.raw_json_data, df_processed)
+            
             if save_data(METRICS_FILE, updated_json):
-                st.success("✅ ¡Cambios guardados exitosamente!")
-                # Actualizar el session state
+                st.success("✅ ¡Cambios guardados y scores recalculados exitosamente!")
+                # Limpiar caché y recargar
+                load_data.clear()
                 st.session_state.raw_json_data = updated_json
                 st.session_state.df_raw, _ = load_data(METRICS_FILE)
                 st.rerun()
@@ -310,7 +419,9 @@ if df_raw is not None:
 
     # Expander para ver los datos crudos (JSON original)
     with st.expander("🔍 Ver datos crudos (JSON original)"):
-        st.json(raw_json_data)
+        st.json(st.session_state.raw_json_data)
 
 else:
-    st.info("Esperando que se genere el archivo `cuaderno_metricas.json`...")
+    st.info("Cargando datos... o esperando que se genere el archivo `cuaderno_metricas.json`...")
+    if st.button("Reintentar carga"):
+        st.rerun()
