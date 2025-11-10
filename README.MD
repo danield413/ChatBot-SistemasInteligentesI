@@ -41,27 +41,110 @@ El proyecto incluye un pipeline completo:
 
 ## 📂 Componentes del Proyecto
 
-* `app.py`: Aplicación principal de Streamlit. Es la interfaz de chat comparativa.
-* `dashboard.py`: Aplicación de Streamlit. Es el dashboard de visualización y edición de métricas.
-* `evaluate.py`: Script para ejecutar las preguntas del `gold_set.json` contra los modelos y generar el archivo `cuaderno_metricas.json`.
-* `ingest.py`: Script para leer los PDFs de la carpeta `corpus/`, generar embeddings y subirlos a ChromaDB Cloud.
+* `app.py`: Aplicación principal de Streamlit (Chatbot).
+* `dashboard.py`: Aplicación de Streamlit (Dashboard de métricas).
+* `evaluate.py`: Script para ejecutar la evaluación de modelos.
+* `ingest.py`: Script para la ingesta de documentos a ChromaDB.
 * `requirements.txt`: Lista de dependencias de Python.
-* `.env.example`: Plantilla para las variables de entorno necesarias.
-* `/json`: Contiene el `gold_set.json` (preguntas de prueba) y el `cuaderno_metricas.json` (respuestas y calificaciones).
+* `.env.example`: Plantilla para las variables de entorno.
+* `Dockerfile`: Instrucciones para construir la imagen de Docker.
+* `Dockerfile.dashboard`: Instrucciones para construir la imagen de Docker.
+* `docker-compose.yml`: Archivo para orquestar los servicios de Docker.
+* `/json`: Contiene el `gold_set.json` y los resultados en `cuaderno_metricas.json`.
 * `/corpus`: (Directorio local, no versionado) Debes crear esta carpeta y añadir tus archivos PDF allí.
 
 ---
 
-## ⚙️ Instalación y Configuración
+## 🐳 Ejecución con Docker-Compose (Método Recomendado)
+
+Este método te permite ejecutar todo el proyecto (chatbot, dashboard y scripts) de forma aislada y reproducible con un solo comando.
+
+**Requisitos:**
+* **Docker Desktop** instalado y en ejecución.
+
+### Paso 1: Configurar Variables de Entorno
+
+El repositorio ya incluye un `.env.example`.
+1.  Crea una copia del archivo `.env.example` y renuébrala a `.env`.
+2.  Abre el archivo `.env` y rellena todas las API keys necesarias (GOOGLE, GROQ, CHROMA).
+
+### Paso 2: Preparar los Documentos
+
+1.  Crea una carpeta llamada `corpus` en la raíz del proyecto (si no existe).
+2.  Añade todos los archivos `.pdf` que desees ingestar dentro de la carpeta `corpus/`.
+
+### Paso 3: Corregir `requirements.txt` (¡Crítico!)
+
+Para que la imagen de Docker se construya correctamente, tu archivo `requirements.txt` no debe tener paquetes en conflicto. Asegúrate de que su contenido sea el siguiente:
+
+```txt
+streamlit
+langchain_core
+python-dotenv
+langchain_google_genai
+langchain_groq
+langchain_community
+langchain_huggingface
+langchain-chroma
+chromadb
+pandas
+plotly
+sentence-transformers
+```
+
+### Paso 4: Ingesta de Datos (Solo la primera vez)
+
+Este comando construirá tu imagen de Docker (basado en el `Dockerfile`) y ejecutará el script `ingest.py`.
+
+```bash
+docker-compose run --rm ingest
+```
+
+### Paso 5: Generar Métricas (Opcional)
+
+Si deseas pre-generar el archivo `cuaderno_metricas.json` antes de lanzar el dashboard, ejecuta:
+
+```bash
+docker-compose run --rm evaluate
+```
+*(El archivo aparecerá en tu carpeta local `/json` gracias a la configuración de volúmenes en `docker-compose.yml`)*.
+
+### Paso 6: ¡Levantar las Aplicaciones!
+
+Este es el comando principal. Inicia el chatbot y el dashboard al mismo tiempo.
+
+```bash
+docker-compose up
+```
+(O para ejecutarlo en segundo plano, usa `docker-compose up -d`)
+
+Una vez ejecutado, tus aplicaciones estarán disponibles en:
+* **🤖 Chatbot:** `http://localhost:8501`
+* **📊 Dashboard:** `http://localhost:8502`
+
+### Paso 7: Detener los Servicios
+
+* Si lo ejecutaste con `docker-compose up`, simplemente presiona `Ctrl + C` en la terminal.
+* Si lo ejecutaste con `-d`, usa el comando:
+
+```bash
+docker-compose down
+```
+
+---
+
+## ⚙️ Instalación y Uso (Método Local / Manual)
+
+Este es el método alternativo si prefieres no usar Docker y ejecutar todo en tu máquina local.
 
 ### 1. Clonar el Repositorio
 
 ```bash
-git clone https://github.com/danield413/ChatBot-SistemasInteligentesI.git
+git clone [https://github.com/danield413/ChatBot-SistemasInteligentesI.git](https://github.com/danield413/ChatBot-SistemasInteligentesI.git)
 cd ChatBot-SistemasInteligentesI
 ```
 
-### 2. Crear un Entorno Virtual (lo recomendamos)
+### 2. Crear un Entorno Virtual (Recomendado)
 
 ```bash
 # Windows
@@ -75,45 +158,26 @@ source venv/bin/activate
 
 ### 3. Instalar Dependencias
 
+Asegúrate de usar la versión corregida de `requirements.txt` (mencionada en la sección de Docker) para evitar conflictos.
+
 ```bash
 pip install -r requirements.txt
 ```
 
-En caso de que alguna dependencia no se instale, puedes hacerlo manualmente.
-
 ### 4. Configurar Variables de Entorno
 
-Crea un archivo llamado `.env` en la raíz del proyecto, copiando el contenido de `.env.example`. Deberás conseguir las API keys correspondientes:
-
-```ini
-# Configuración del ChatBot IA
-
-# LLMs y API Keys
-GOOGLE_API_KEY=tu_google_api_key_aqui
-GROQ_API_KEY=tu_groq_api_key_aqui
-
-# Chroma Cloud Configuration
-CHROMA_API_KEY=tu_chroma_api_key_aqui
-CHROMA_TENANT=tu_tenant_id_aqui
-
-# Estos valores ya vienen en el .env.example y son usados por los scripts
-CHROMA_DATABASE=ChatBotSI
-CHROMA_COLLECTION_NAME=IA_DOCS
-MAX_BATCH_SIZE=300
-```
+Crea un archivo `.env` (copiando de `.env.example`) y rellena tus API keys.
 
 ---
 
-## 🚀 Uso del Pipeline
+## 🚀 Uso del Pipeline (Método Local / Manual)
 
-Sigue estos pasos en orden para ejecutar el proyecto.
+Sigue estos pasos en orden para ejecutar el proyecto localmente.
 
 ### Paso 1: Preparar los Documentos
 
 1.  Crea una carpeta llamada `corpus` en la raíz del proyecto.
 2.  Añade todos los archivos `.pdf` que desees ingestar dentro de la carpeta `corpus/`.
-
-*(Nota: Esta carpeta está ignorada por `.gitignore`, por lo que no se subirá al repositorio).*
 
 ### Paso 2: Ingesta de Datos en ChromaDB
 
@@ -125,7 +189,7 @@ python ingest.py
 
 ### Paso 3: Generar el Cuaderno de Métricas
 
-Este script ejecutará todas las preguntas del archivo `json/gold_set.json` contra ambos modelos (Gemini y Llama 3.1) usando el contexto de RAG. Las respuestas y métricas de latencia se guardarán en `json/cuaderno_metricas.json`.
+Este script ejecutará el `gold_set.json` y guardará los resultados en `cuaderno_metricas.json`.
 
 ```bash
 python evaluate.py
@@ -133,11 +197,7 @@ python evaluate.py
 
 ### Paso 4: Calificación Manual y Visualización
 
-Inicia el dashboard de Streamlit. Esta aplicación te permitirá:
-1.  Visualizar las métricas de rendimiento (Score, Latencia, etc.).
-2.  Leer cada pregunta y la respuesta generada por los modelos.
-3.  **Calificar manualmente** las métricas cualitativas (Exactitud, Cobertura, Claridad, etc.) en la pestaña "Editor de Métricas".
-4.  Guardar tus calificaciones de vuelta en el archivo `json/cuaderno_metricas.json`.
+Inicia el dashboard de Streamlit.
 
 ```bash
 streamlit run dashboard.py
@@ -145,7 +205,7 @@ streamlit run dashboard.py
 
 ### Paso 5: Iniciar el Chatbot Comparativo
 
-Una vez que los datos están en ChromaDB, puedes iniciar la aplicación de chat principal para interactuar con los modelos en tiempo real.
+Inicia la aplicación de chat principal.
 
 ```bash
 streamlit run app.py

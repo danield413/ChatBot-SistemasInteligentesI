@@ -21,11 +21,20 @@ from langchain_chroma import Chroma
 # --- 1. Configuración y Carga de Variables ---
 load_dotenv()
 
+
+
 # Para Chroma Cloud
 CHROMA_API_KEY = os.getenv("CHROMA_API_KEY")
 CHROMA_TENANT = os.getenv("CHROMA_TENANT")
 CHROMA_DATABASE = os.getenv("CHROMA_DATABASE", "ChatBotSI")
 COLLECTION_NAME = os.getenv("CHROMA_COLLECTION_NAME", "ai_documents")
+
+# #mostrar variables de entorno usadas usando print
+# print(f"Chroma API Key: {CHROMA_API_KEY is not None}")
+# print(f"Chroma Tenant: {CHROMA_TENANT is not None}")
+# print(f"Chroma Database: {CHROMA_DATABASE}")
+# print(f"Collection Name: {COLLECTION_NAME}")
+
 
 # --- 2. Configuración de Página (DEBE SER LO PRIMERO) ---
 st.set_page_config(

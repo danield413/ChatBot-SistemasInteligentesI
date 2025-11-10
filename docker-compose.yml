@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  # Aplicación principal del ChatBot
+  chatbot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: chatbot-si
+    ports:
+      - "8501:8501"
+    environment:
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - GROQ_API_KEY=${GROQ_API_KEY}
+      - CHROMA_API_KEY=${CHROMA_API_KEY}
+      - CHROMA_TENANT=${CHROMA_TENANT}
+      - CHROMA_DATABASE=${CHROMA_DATABASE:-ChatBotSI}
+      - CHROMA_COLLECTION_NAME=${CHROMA_COLLECTION_NAME:-ai_documents}
+    volumes:
+      - ./json:/app/json
+      - ./data:/app/data
+    networks:
+      - chatbot-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Dashboard de métricas
+  dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile.dashboard
+    container_name: dashboard-si
+    ports:
+      - "8502:8502"
+    volumes:
+      - ./json:/app/json
+    networks:
+      - chatbot-network
+    restart: unless-stopped
+    command: streamlit run dashboard.py --server.port=8502
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8502/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  chatbot-network:
+    driver: bridge
+
+volumes:
+  json_data:
+    driver: local
+  data:
+    driver: local

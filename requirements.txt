@@ -1,12 +1,12 @@
 streamlit
 langchain_core
-dotenv
+python-dotenv
 langchain_google_genai
 langchain_groq
 langchain_community
 langchain_huggingface
-chromadb 
-chroma-client
-pandas
 langchain-chroma
+chromadb
+pandas
 plotly
+sentence-transformers
