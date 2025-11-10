@@ -9,3 +9,4 @@ chromadb
 chroma-client
 pandas
 langchain-chroma
+plotly
