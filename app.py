@@ -281,8 +281,8 @@ retriever, rag_status = initialize_rag_system()
 if not rag_status:
     st.stop()
 
-# --- 5. Definir el Prompt ---
-template = """
+# --- 5. Definir los Prompts (Breve y Extendido) ---
+template_breve = """
 Eres un asistente de IA de la Facultad de Inteligencia Artificial e Ingenierías de la Universidad de Caldas.
 Tu tarea es responder preguntas sobre IA basándose EXCLUSIVAMENTE en el siguiente contexto.
 
@@ -293,13 +293,37 @@ Pregunta:
 {question}
 
 Instrucciones:
-1. Responde de forma clara y concisa.
-2. Si la información no está en el contexto, indica: "Lo siento, no tengo información suficiente sobre ese tema."
-3. Incluye siempre la fuente de la información al final de tu respuesta.
+1. Responde de forma BREVE y CONCISA en 2-3 frases máximo.
+2. Ve directo al grano, sin introducciones largas.
+3. Si la información no está en el contexto, indica brevemente: "No tengo información sobre ese tema."
+4. NO incluyas citas ni fuentes en la respuesta.
 
 Respuesta:
 """
-prompt = PromptTemplate(template=template, input_variables=["context", "question"])
+
+template_extendida = """
+Eres un asistente de IA de la Facultad de Inteligencia Artificial e Ingenierías de la Universidad de Caldas.
+Tu tarea es responder preguntas sobre IA basándose EXCLUSIVAMENTE en el siguiente contexto.
+
+Contexto:
+{context}
+
+Pregunta:
+{question}
+
+Instrucciones:
+1. Proporciona una EXPLICACIÓN DETALLADA y COMPLETA del tema.
+2. Organiza la respuesta en párrafos bien estructurados.
+3. INCLUYE CITAS TEXTUALES del contexto usando comillas ("...") cuando sea relevante.
+4. Al final, lista las fuentes utilizadas en formato:
+   📚 **Fuentes:** [Nombre del documento 1], [Nombre del documento 2]
+5. Si la información no está en el contexto, indica: "Lo siento, no tengo información suficiente sobre ese tema en mis documentos."
+
+Respuesta:
+"""
+
+prompt_breve = PromptTemplate(template=template_breve, input_variables=["context", "question"])
+prompt_extendida = PromptTemplate(template=template_extendida, input_variables=["context", "question"])
 
 def format_docs(docs):
     """Función auxiliar para formatear los documentos de contexto."""
@@ -315,7 +339,31 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# --- 7. Stats Cards ---
+# --- 7. Selector de Modo de Respuesta ---
+st.markdown("### ⚙️ Configuración de Respuesta")
+col_mode1, col_mode2, col_mode3 = st.columns([1, 2, 1])
+
+with col_mode2:
+    response_mode = st.radio(
+        "Selecciona el modo de respuesta:",
+        options=["📝 Breve (2-3 frases)", "📖 Extendida (explicación con citas)"],
+        horizontal=True,
+        help="**Breve:** Respuestas concisas y directas.\n**Extendida:** Explicaciones detalladas con citas del contexto."
+    )
+    
+    # Determinar qué prompt usar
+    use_extended = "Extendida" in response_mode
+    current_prompt = prompt_extendida if use_extended else prompt_breve
+    
+    # Mostrar descripción del modo seleccionado
+    if use_extended:
+        st.info("🔍 **Modo Extendido:** Recibirás explicaciones detalladas con citas textuales y fuentes.")
+    else:
+        st.success("⚡ **Modo Breve:** Recibirás respuestas rápidas y concisas.")
+
+st.markdown("<br>", unsafe_allow_html=True)
+
+# --- 8. Stats Cards ---
 col_stat1, col_stat2, col_stat3, col_stat4 = st.columns(4)
 
 # Inicializar contadores si no existen
@@ -351,22 +399,23 @@ with col_stat3:
     """, unsafe_allow_html=True)
 
 with col_stat4:
+    mode_emoji = "📖" if use_extended else "📝"
     st.markdown(f"""
     <div class="stats-card">
-        <div class="stats-number">✓</div>
-        <div class="stats-label">Sistema Activo</div>
+        <div class="stats-number">{mode_emoji}</div>
+        <div class="stats-label">{"Modo Extendido" if use_extended else "Modo Breve"}</div>
     </div>
     """, unsafe_allow_html=True)
 
 st.markdown("<br>", unsafe_allow_html=True)
 
-# --- 8. Inicializar historiales de chat ---
+# --- 9. Inicializar historiales de chat ---
 if "messages_llama" not in st.session_state:
     st.session_state.messages_llama = []
 if "messages_gemini" not in st.session_state:
     st.session_state.messages_gemini = []
 
-# --- 9. Crear dos columnas para los chats ---
+# --- 10. Crear dos columnas para los chats ---
 col_llama, col_gemini = st.columns(2, gap="large")
 
 # --- Columna izquierda: Llama 3.1 ---
@@ -399,7 +448,7 @@ with col_gemini:
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
 
-# --- 10. Input del usuario ---
+# --- 11. Input del usuario ---
 user_question = st.chat_input("💭 Escribe tu pregunta sobre Inteligencia Artificial...", key="user_input")
 
 if user_question:
@@ -428,27 +477,34 @@ if user_question:
                     temperature=0
                 )
                 
+                # Usar el prompt según el modo seleccionado
                 rag_chain_llama = (
                     {"context": retriever | format_docs, "question": RunnablePassthrough()}
-                    | prompt
+                    | current_prompt
                     | llm_llama
                     | StrOutputParser()
                 )
                 
-                with st.spinner("🦙 Llama está pensando..."):
+                spinner_text = "🦙 Llama generando respuesta extendida..." if use_extended else "🦙 Llama respondiendo brevemente..."
+                with st.spinner(spinner_text):
                     start_time = time.time()
                     response_llama = rag_chain_llama.invoke(user_question)
                     elapsed_time = time.time() - start_time
                     
                     st.markdown(response_llama)
-                    st.caption(f"⏱️ Tiempo de respuesta: {elapsed_time:.2f}s")
                     
-                    with st.expander("📚 Ver contexto utilizado"):
-                        context_docs = retriever.invoke(user_question)
-                        for i, doc in enumerate(context_docs, 1):
-                            st.markdown(f"**Fuente {i}:** {doc.metadata.get('source', 'N/A')}")
-                            st.text(doc.page_content[:200] + "...")
-                            st.divider()
+                    # Mostrar estadísticas de la respuesta
+                    word_count = len(response_llama.split())
+                    st.caption(f"⏱️ Tiempo: {elapsed_time:.2f}s | 📊 Palabras: {word_count} | {'📖 Extendida' if use_extended else '📝 Breve'}")
+                    
+                    # Mostrar contexto solo en modo extendido
+                    if use_extended:
+                        with st.expander("📚 Ver contexto utilizado"):
+                            context_docs = retriever.invoke(user_question)
+                            for i, doc in enumerate(context_docs, 1):
+                                st.markdown(f"**Fuente {i}:** {doc.metadata.get('source', 'N/A')}")
+                                st.text(doc.page_content[:300] + "...")
+                                st.divider()
                 
                 st.session_state.messages_llama.append({"role": "assistant", "content": response_llama})
                 st.session_state.llama_responses += 1
@@ -464,27 +520,34 @@ if user_question:
             try:
                 llm_gemini = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0)
                 
+                # Usar el prompt según el modo seleccionado
                 rag_chain_gemini = (
                     {"context": retriever | format_docs, "question": RunnablePassthrough()}
-                    | prompt
+                    | current_prompt
                     | llm_gemini
                     | StrOutputParser()
                 )
                 
-                with st.spinner("✨ Gemini está pensando..."):
+                spinner_text = "✨ Gemini generando respuesta extendida..." if use_extended else "✨ Gemini respondiendo brevemente..."
+                with st.spinner(spinner_text):
                     start_time = time.time()
                     response_gemini = rag_chain_gemini.invoke(user_question)
                     elapsed_time = time.time() - start_time
                     
                     st.markdown(response_gemini)
-                    st.caption(f"⏱️ Tiempo de respuesta: {elapsed_time:.2f}s")
                     
-                    with st.expander("📚 Ver contexto utilizado"):
-                        context_docs = retriever.invoke(user_question)
-                        for i, doc in enumerate(context_docs, 1):
-                            st.markdown(f"**Fuente {i}:** {doc.metadata.get('source', 'N/A')}")
-                            st.text(doc.page_content[:200] + "...")
-                            st.divider()
+                    # Mostrar estadísticas de la respuesta
+                    word_count = len(response_gemini.split())
+                    st.caption(f"⏱️ Tiempo: {elapsed_time:.2f}s | 📊 Palabras: {word_count} | {'📖 Extendida' if use_extended else '📝 Breve'}")
+                    
+                    # Mostrar contexto solo en modo extendido
+                    if use_extended:
+                        with st.expander("📚 Ver contexto utilizado"):
+                            context_docs = retriever.invoke(user_question)
+                            for i, doc in enumerate(context_docs, 1):
+                                st.markdown(f"**Fuente {i}:** {doc.metadata.get('source', 'N/A')}")
+                                st.text(doc.page_content[:300] + "...")
+                                st.divider()
                 
                 st.session_state.messages_gemini.append({"role": "assistant", "content": response_gemini})
                 st.session_state.gemini_responses += 1
@@ -496,7 +559,7 @@ if user_question:
     
     st.rerun()
 
-# --- 11. Botones de control ---
+# --- 12. Botones de control ---
 st.markdown("<br>", unsafe_allow_html=True)
 col_btn1, col_btn2, col_btn3 = st.columns([1, 1, 1])
 
@@ -509,7 +572,7 @@ with col_btn2:
         st.session_state.gemini_responses = 0
         st.rerun()
 
-# --- 12. Footer ---
+# --- 13. Footer ---
 st.markdown("<br><br>", unsafe_allow_html=True)
 st.markdown("""
 <div style="text-align: center; color: rgba(255,255,255,0.5); font-size: 0.9rem;">
