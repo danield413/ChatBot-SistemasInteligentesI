@@ -5,54 +5,48 @@ from dotenv import load_dotenv
 import time
 
 # --- Imports de LangChain (Core) ---
-from langchain_core.prompts import PromptTemplate
-from langchain_core.runnables import RunnablePassthrough
-from langchain_core.output_parsers import StrOutputParser
+# LangChain es el framework que nos permite construir aplicaciones con LLMs
+from langchain_core.prompts import PromptTemplate  # Para crear templates de prompts reutilizables
+from langchain_core.runnables import RunnablePassthrough  # Permite pasar datos sin modificarlos en la cadena
+from langchain_core.output_parsers import StrOutputParser  # Convierte la salida del LLM a string
 
 # --- Imports para los LLMs (Gemini y Groq) ---
-from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain_groq import ChatGroq
+from langchain_google_genai import ChatGoogleGenerativeAI  # Cliente para usar Gemini de Google
+from langchain_groq import ChatGroq  # Cliente para usar Llama a través de Groq
 
 # --- Imports para el RAG (Embeddings y VectorDB) ---
-from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_chroma import Chroma
+from langchain_huggingface import HuggingFaceEmbeddings  # Modelo de embeddings para convertir texto a vectores
+from langchain_chroma import Chroma  # Cliente para la base de datos vectorial ChromaDB
 
 
 # --- 1. Configuración y Carga de Variables ---
-load_dotenv()
+load_dotenv()  # Carga las variables de entorno desde el archivo .env
 
-
-
-# Para Chroma Cloud
-CHROMA_API_KEY = os.getenv("CHROMA_API_KEY")
-CHROMA_TENANT = os.getenv("CHROMA_TENANT")
-CHROMA_DATABASE = os.getenv("CHROMA_DATABASE", "ChatBotSI")
-COLLECTION_NAME = os.getenv("CHROMA_COLLECTION_NAME", "ai_documents")
-
-# #mostrar variables de entorno usadas usando print
-# print(f"Chroma API Key: {CHROMA_API_KEY is not None}")
-# print(f"Chroma Tenant: {CHROMA_TENANT is not None}")
-# print(f"Chroma Database: {CHROMA_DATABASE}")
-# print(f"Collection Name: {COLLECTION_NAME}")
-
+# Para Chroma Cloud - Variables necesarias para conectarse a ChromaDB en la nube
+CHROMA_API_KEY = os.getenv("CHROMA_API_KEY")  # API key para autenticación
+CHROMA_TENANT = os.getenv("CHROMA_TENANT")  # Tenant ID (organización)
+CHROMA_DATABASE = os.getenv("CHROMA_DATABASE", "ChatBotSI")  # Nombre de la BD (valor por defecto)
+COLLECTION_NAME = os.getenv("CHROMA_COLLECTION_NAME", "ai_documents")  # Nombre de la colección
 
 # --- 2. Configuración de Página (DEBE SER LO PRIMERO) ---
+# set_page_config debe llamarse antes de cualquier otro comando de Streamlit
 st.set_page_config(
-    layout="wide",
-    page_title="ChatBot SI - UCaldas",
-    page_icon="🤖",
-    initial_sidebar_state="collapsed"
+    layout="wide",  # Usa el ancho completo de la pantalla
+    page_title="ChatBot SI - UCaldas",  # Título en la pestaña del navegador
+    page_icon="🤖",  # Emoji que aparece en la pestaña
+    initial_sidebar_state="collapsed"  # Sidebar colapsado por defecto
 )
 
 # --- 3. CSS Personalizado para diseño moderno ---
+# Inyecta CSS personalizado para mejorar la apariencia de la aplicación
 st.markdown("""
 <style>
-    /* Tema oscuro principal */
+    /* Tema oscuro principal con gradiente */
     .stApp {
         background: linear-gradient(135deg, #1e1e2e 0%, #2d2d44 100%);
     }
     
-    /* Header personalizado */
+    /* Header personalizado con gradiente y sombra */
     .main-header {
         background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
         padding: 2rem;
@@ -77,18 +71,18 @@ st.markdown("""
         margin-top: 0.5rem;
     }
     
-    /* Contenedores de chat mejorados */
+    /* Contenedores de chat con efecto glassmorphism */
     .chat-container {
         background: rgba(255, 255, 255, 0.05);
         border-radius: 15px;
         padding: 1.5rem;
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);  /* Efecto de desenfoque del fondo */
         border: 1px solid rgba(255, 255, 255, 0.1);
         height: 600px;
         overflow-y: auto;
     }
     
-    /* Títulos de modelos */
+    /* Headers diferenciados para cada modelo */
     .model-header {
         display: flex;
         align-items: center;
@@ -99,15 +93,17 @@ st.markdown("""
         margin-bottom: 1rem;
     }
     
+    /* Color verde para Llama */
     .llama-header {
         border-left: 4px solid #10b981;
     }
     
+    /* Color azul para Gemini */
     .gemini-header {
         border-left: 4px solid #3b82f6;
     }
     
-    /* Mensajes de chat */
+    /* Estilos para mensajes de chat */
     .stChatMessage {
         background: rgba(255, 255, 255, 0.05) !important;
         border-radius: 10px !important;
@@ -115,7 +111,7 @@ st.markdown("""
         padding: 1rem !important;
     }
     
-    /* Input de chat */
+    /* Input de chat estilizado */
     .stChatInputContainer {
         background: rgba(255, 255, 255, 0.08);
         border-radius: 15px;
@@ -123,7 +119,7 @@ st.markdown("""
         backdrop-filter: blur(10px);
     }
     
-    /* Botones */
+    /* Botones con gradiente y animación */
     .stButton button {
         background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
         color: white;
@@ -131,13 +127,14 @@ st.markdown("""
         border-radius: 10px;
         padding: 0.75rem 2rem;
         font-weight: 600;
-        transition: all 0.3s ease;
+        transition: all 0.3s ease;  /* Transición suave para hover */
         box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
     }
     
+    /* Efecto hover en botones */
     .stButton button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        transform: translateY(-2px);  /* Levanta el botón */
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);  /* Sombra más pronunciada */
     }
     
     /* Expander personalizado */
@@ -147,12 +144,12 @@ st.markdown("""
         font-weight: 600;
     }
     
-    /* Spinner */
+    /* Spinner con color personalizado */
     .stSpinner > div {
         border-top-color: #667eea !important;
     }
     
-    /* Scrollbar personalizado */
+    /* Scrollbar personalizado para coherencia visual */
     ::-webkit-scrollbar {
         width: 8px;
         height: 8px;
@@ -172,7 +169,7 @@ st.markdown("""
         background: linear-gradient(180deg, #764ba2 0%, #667eea 100%);
     }
     
-    /* Badges de estado */
+    /* Badges de estado para identificar modelos */
     .status-badge {
         display: inline-block;
         padding: 0.25rem 0.75rem;
@@ -194,7 +191,7 @@ st.markdown("""
         border: 1px solid #3b82f6;
     }
     
-    /* Animación de entrada */
+    /* Animación de entrada suave */
     @keyframes fadeInUp {
         from {
             opacity: 0;
@@ -210,7 +207,7 @@ st.markdown("""
         animation: fadeInUp 0.5s ease-out;
     }
     
-    /* Stats cards */
+    /* Tarjetas de estadísticas */
     .stats-card {
         background: rgba(255, 255, 255, 0.08);
         border-radius: 12px;
@@ -234,37 +231,51 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Validar que las API keys existan
+# Validar que las API keys existan antes de continuar
 if not (os.getenv("GOOGLE_API_KEY") and os.getenv("GROQ_API_KEY")):
     st.warning("⚠️ Advertencia: Una o ambas API keys (GOOGLE_API_KEY, GROQ_API_KEY) no están en el .env.")
 
+# Validar configuración de Chroma - detiene la app si falta
 if not CHROMA_API_KEY or not CHROMA_TENANT:
     st.error("❌ Error: CHROMA_API_KEY y CHROMA_TENANT deben estar configurados en el archivo .env")
     st.stop()
 
 # --- 4. Cargar la Base de Datos Vectorial (Chroma Cloud) ---
-@st.cache_resource
+@st.cache_resource  # Cachea el recurso para no recargarlo en cada interacción
 def initialize_rag_system():
+    """
+    Inicializa el sistema RAG (Retrieval Augmented Generation):
+    1. Carga el modelo de embeddings
+    2. Conecta con ChromaDB en la nube
+    3. Crea un retriever para buscar documentos relevantes
+    """
     try:
+        # Modelo de embeddings: convierte texto en vectores numéricos
+        # 'all-MiniLM-L6-v2' es un modelo pequeño y eficiente de HuggingFace
         embeddings_model = HuggingFaceEmbeddings(
             model_name='all-MiniLM-L6-v2',
-            model_kwargs={'device': 'cpu'}
+            model_kwargs={'device': 'cpu'}  # Usa CPU (no requiere GPU)
         )
         
         import chromadb
         
+        # Cliente de ChromaDB en la nube
         chroma_client = chromadb.CloudClient(
             api_key=CHROMA_API_KEY,
             tenant=CHROMA_TENANT,
             database=CHROMA_DATABASE
         )
         
+        # Vectorstore: almacén de vectores donde están los documentos embeddeados
         vectorstore = Chroma(
             client=chroma_client,
             collection_name=COLLECTION_NAME,
             embedding_function=embeddings_model
         )
         
+        # Retriever: componente que busca los documentos más relevantes
+        # search_type="similarity": busca por similitud de coseno
+        # k=3: devuelve los 3 documentos más relevantes
         retriever = vectorstore.as_retriever(
             search_type="similarity",
             search_kwargs={"k": 3}
@@ -276,12 +287,15 @@ def initialize_rag_system():
         st.error(f"❌ Error al conectar con Chroma Cloud: {e}")
         return None, False
 
+# Inicializar el sistema RAG
 retriever, rag_status = initialize_rag_system()
 
+# Si falla la conexión, detener la aplicación
 if not rag_status:
     st.stop()
 
 # --- 5. Definir los Prompts (Breve y Extendido) ---
+# Prompt para modo breve: respuestas concisas de 2-3 frases
 template_breve = """
 Eres un asistente de IA de la Facultad de Inteligencia Artificial e Ingenierías de la Universidad de Caldas.
 Tu tarea es responder preguntas sobre IA basándose EXCLUSIVAMENTE en el siguiente contexto.
@@ -301,6 +315,7 @@ Instrucciones:
 Respuesta:
 """
 
+# Prompt para modo extendido: explicaciones detalladas con citas
 template_extendida = """
 Eres un asistente de IA de la Facultad de Inteligencia Artificial e Ingenierías de la Universidad de Caldas.
 Tu tarea es responder preguntas sobre IA basándose EXCLUSIVAMENTE en el siguiente contexto.
@@ -322,17 +337,21 @@ Instrucciones:
 Respuesta:
 """
 
+# Crear objetos PromptTemplate que LangChain puede usar
 prompt_breve = PromptTemplate(template=template_breve, input_variables=["context", "question"])
 prompt_extendida = PromptTemplate(template=template_extendida, input_variables=["context", "question"])
 
 def format_docs(docs):
-    """Función auxiliar para formatear los documentos de contexto."""
+    """
+    Función auxiliar para formatear los documentos recuperados.
+    Concatena el contenido de todos los documentos con doble salto de línea.
+    """
     return "\n\n".join(doc.page_content for doc in docs)
 
 # --- 6. Header Personalizado ---
 st.markdown("""
 <div class="main-header fade-in">
-    <h1 class="main-title">ChatBot de Sistemas Inteligentes</h1>
+    <h1 class="main-title">🤖 ChatBot de Sistemas Inteligentes</h1>
     <p class="subtitle">🎓 Facultad de Inteligencia Artificial e Ingenierías - Universidad de Caldas</p>
     <p class="subtitle">Daniel Alberto Díaz - Juan Manuel Figueroa</p>
     <p class="subtitle">Compara respuestas de Llama 3.1 y Gemini en tiempo real</p>
@@ -344,6 +363,7 @@ st.markdown("### ⚙️ Configuración de Respuesta")
 col_mode1, col_mode2, col_mode3 = st.columns([1, 2, 1])
 
 with col_mode2:
+    # Radio buttons para seleccionar el modo de respuesta
     response_mode = st.radio(
         "Selecciona el modo de respuesta:",
         options=["📝 Breve (2-3 frases)", "📖 Extendida (explicación con citas)"],
@@ -351,7 +371,7 @@ with col_mode2:
         help="**Breve:** Respuestas concisas y directas.\n**Extendida:** Explicaciones detalladas con citas del contexto."
     )
     
-    # Determinar qué prompt usar
+    # Determinar qué prompt usar basándose en la selección
     use_extended = "Extendida" in response_mode
     current_prompt = prompt_extendida if use_extended else prompt_breve
     
@@ -366,7 +386,7 @@ st.markdown("<br>", unsafe_allow_html=True)
 # --- 8. Stats Cards ---
 col_stat1, col_stat2, col_stat3, col_stat4 = st.columns(4)
 
-# Inicializar contadores si no existen
+# Inicializar contadores en session_state (persisten durante la sesión)
 if "total_questions" not in st.session_state:
     st.session_state.total_questions = 0
 if "llama_responses" not in st.session_state:
@@ -374,6 +394,7 @@ if "llama_responses" not in st.session_state:
 if "gemini_responses" not in st.session_state:
     st.session_state.gemini_responses = 0
 
+# Mostrar estadísticas en tarjetas
 with col_stat1:
     st.markdown(f"""
     <div class="stats-card">
@@ -410,16 +431,19 @@ with col_stat4:
 st.markdown("<br>", unsafe_allow_html=True)
 
 # --- 9. Inicializar historiales de chat ---
+# Cada modelo tiene su propio historial de mensajes
 if "messages_llama" not in st.session_state:
     st.session_state.messages_llama = []
 if "messages_gemini" not in st.session_state:
     st.session_state.messages_gemini = []
 
 # --- 10. Crear dos columnas para los chats ---
+# Divide la pantalla en dos para comparar respuestas lado a lado
 col_llama, col_gemini = st.columns(2, gap="large")
 
 # --- Columna izquierda: Llama 3.1 ---
 with col_llama:
+    # Header con identificación visual de Llama
     st.markdown("""
     <div class="model-header llama-header">
         <span style="font-size: 1.5rem;">🦙</span>
@@ -428,13 +452,14 @@ with col_llama:
     </div>
     """, unsafe_allow_html=True)
     
-    # Contenedor de mensajes
+    # Mostrar todos los mensajes del historial de Llama
     for message in st.session_state.messages_llama:
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
 
 # --- Columna derecha: Gemini ---
 with col_gemini:
+    # Header con identificación visual de Gemini
     st.markdown("""
     <div class="model-header gemini-header">
         <span style="font-size: 1.5rem;">✨</span>
@@ -443,23 +468,26 @@ with col_gemini:
     </div>
     """, unsafe_allow_html=True)
     
-    # Contenedor de mensajes
+    # Mostrar todos los mensajes del historial de Gemini
     for message in st.session_state.messages_gemini:
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
 
 # --- 11. Input del usuario ---
+# chat_input proporciona un campo de texto estilizado en la parte inferior
 user_question = st.chat_input("💭 Escribe tu pregunta sobre Inteligencia Artificial...", key="user_input")
 
 if user_question:
-    # Incrementar contador
+    # Se ejecuta cuando el usuario envía una pregunta
+    
+    # Incrementar contador de preguntas
     st.session_state.total_questions += 1
     
-    # Agregar pregunta a ambos historiales
+    # Agregar la pregunta a ambos historiales
     st.session_state.messages_llama.append({"role": "user", "content": user_question})
     st.session_state.messages_gemini.append({"role": "user", "content": user_question})
     
-    # Mostrar pregunta del usuario en ambas columnas
+    # Mostrar la pregunta del usuario en ambas columnas
     with col_llama:
         with st.chat_message("user"):
             st.markdown(user_question)
@@ -472,12 +500,18 @@ if user_question:
     with col_llama:
         with st.chat_message("assistant"):
             try:
+                # Inicializar el modelo Llama 3.1 a través de Groq
                 llm_llama = ChatGroq(
                     model_name="llama-3.1-8b-instant",
-                    temperature=0
+                    temperature=0  # 0 = respuestas determinísticas, sin aleatoriedad
                 )
                 
-                # Usar el prompt según el modo seleccionado
+                # Construir la cadena RAG (Retrieval Augmented Generation):
+                # 1. retriever busca documentos relevantes
+                # 2. format_docs los formatea
+                # 3. current_prompt crea el prompt con contexto y pregunta
+                # 4. llm_llama genera la respuesta
+                # 5. StrOutputParser convierte a string
                 rag_chain_llama = (
                     {"context": retriever | format_docs, "question": RunnablePassthrough()}
                     | current_prompt
@@ -485,31 +519,38 @@ if user_question:
                     | StrOutputParser()
                 )
                 
+                # Texto del spinner según el modo
                 spinner_text = "🦙 Llama generando respuesta extendida..." if use_extended else "🦙 Llama respondiendo brevemente..."
                 with st.spinner(spinner_text):
+                    # Medir tiempo de respuesta
                     start_time = time.time()
+                    # Invocar la cadena RAG con la pregunta del usuario
                     response_llama = rag_chain_llama.invoke(user_question)
                     elapsed_time = time.time() - start_time
                     
+                    # Mostrar la respuesta
                     st.markdown(response_llama)
                     
                     # Mostrar estadísticas de la respuesta
                     word_count = len(response_llama.split())
                     st.caption(f"⏱️ Tiempo: {elapsed_time:.2f}s | 📊 Palabras: {word_count} | {'📖 Extendida' if use_extended else '📝 Breve'}")
                     
-                    # Mostrar contexto solo en modo extendido
+                    # Mostrar contexto utilizado solo en modo extendido
                     if use_extended:
                         with st.expander("📚 Ver contexto utilizado"):
+                            # Recuperar los documentos que se usaron
                             context_docs = retriever.invoke(user_question)
                             for i, doc in enumerate(context_docs, 1):
                                 st.markdown(f"**Fuente {i}:** {doc.metadata.get('source', 'N/A')}")
                                 st.text(doc.page_content[:300] + "...")
                                 st.divider()
                 
+                # Agregar respuesta al historial
                 st.session_state.messages_llama.append({"role": "assistant", "content": response_llama})
                 st.session_state.llama_responses += 1
                 
             except Exception as e:
+                # Manejo de errores
                 error_msg = f"❌ Error con Llama: {str(e)}"
                 st.error(error_msg)
                 st.session_state.messages_llama.append({"role": "assistant", "content": error_msg})
@@ -518,9 +559,10 @@ if user_question:
     with col_gemini:
         with st.chat_message("assistant"):
             try:
+                # Inicializar el modelo Gemini de Google
                 llm_gemini = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0)
                 
-                # Usar el prompt según el modo seleccionado
+                # Construir la cadena RAG para Gemini (misma estructura que Llama)
                 rag_chain_gemini = (
                     {"context": retriever | format_docs, "question": RunnablePassthrough()}
                     | current_prompt
@@ -536,11 +578,9 @@ if user_question:
                     
                     st.markdown(response_gemini)
                     
-                    # Mostrar estadísticas de la respuesta
                     word_count = len(response_gemini.split())
                     st.caption(f"⏱️ Tiempo: {elapsed_time:.2f}s | 📊 Palabras: {word_count} | {'📖 Extendida' if use_extended else '📝 Breve'}")
                     
-                    # Mostrar contexto solo en modo extendido
                     if use_extended:
                         with st.expander("📚 Ver contexto utilizado"):
                             context_docs = retriever.invoke(user_question)
@@ -557,6 +597,7 @@ if user_question:
                 st.error(error_msg)
                 st.session_state.messages_gemini.append({"role": "assistant", "content": error_msg})
     
+    # Rerun para actualizar la UI con las nuevas respuestas
     st.rerun()
 
 # --- 12. Botones de control ---
@@ -564,6 +605,7 @@ st.markdown("<br>", unsafe_allow_html=True)
 col_btn1, col_btn2, col_btn3 = st.columns([1, 1, 1])
 
 with col_btn2:
+    # Botón para limpiar todo el historial de conversaciones
     if st.button("🗑️ Limpiar Conversaciones", use_container_width=True):
         st.session_state.messages_llama = []
         st.session_state.messages_gemini = []
