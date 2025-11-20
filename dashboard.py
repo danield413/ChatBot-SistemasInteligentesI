@@ -494,6 +494,358 @@ if 'df_raw' in st.session_state and st.session_state.df_raw is not None:
 
     st.markdown("<br>", unsafe_allow_html=True)
 
+    # --- NUEVA SECCIÓN: ChatBot General (Consolidado) ---
+    st.markdown("### 🤖 ChatBot General - Métricas Consolidadas")
+    st.info("📊 **Vista consolidada** de todas las respuestas del sistema, sin distinción de modelo LLM")
+    
+    # Calcular métricas consolidadas de TODAS las preguntas/respuestas
+    total_responses = len(df_filtered)
+    
+    # Métricas generales consolidadas
+    general_metrics = {
+        'exactitud_factica': df_filtered['exactitud_factica'].mean() * 100,
+        'cobertura': df_filtered['cobertura'].mean() * 100,
+        'citas_validas': df_filtered['citas_validas'].mean() * 100,
+        'claridad': df_filtered['claridad'].mean(),
+        'alucinacion': df_filtered['alucinacion'].mean() * 100,
+        'seguridad': df_filtered['seguridad'].mean() * 100,
+        'score_promedio': df_filtered['score_individual'].mean(),
+        'latencia_promedio': df_filtered['latency_sec'].mean()
+    }
+    
+    # Header del ChatBot General con diseño especial
+    st.markdown(f"""
+    <div style="background: linear-gradient(90deg, rgba(99, 102, 241, 0.2) 0%, rgba(168, 85, 247, 0.2) 100%); 
+                padding: 1.5rem; border-radius: 15px; margin-bottom: 1.5rem; 
+                border: 2px solid rgba(99, 102, 241, 0.3);">
+        <h3 style="margin: 0; color: white; text-align: center;">
+            🌐 <strong>Sistema ChatBot Completo</strong>
+        </h3>
+        <p style="text-align: center; color: rgba(255,255,255,0.7); margin: 0.5rem 0 0 0;">
+            Análisis de {total_responses} respuestas totales del sistema
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # Primera fila: Métricas principales (4 columnas)
+    col_gen1, col_gen2, col_gen3, col_gen4 = st.columns(4)
+    
+    with col_gen1:
+        exactitud_badge = 'badge-success' if general_metrics['exactitud_factica'] >= 80 else ('badge-warning' if general_metrics['exactitud_factica'] >= 60 else 'badge-danger')
+        st.markdown(f"""
+        <div class="metric-card">
+            <div style="font-size: 0.85rem; color: rgba(255,255,255,0.6);">✓ EXACTITUD FÁCTICA</div>
+            <div style="font-size: 2.5rem; font-weight: 700; color: #6366f1; margin: 0.5rem 0;">
+                {general_metrics['exactitud_factica']:.1f}%
+            </div>
+            <span class="status-badge {exactitud_badge}">
+                {"Excelente" if general_metrics['exactitud_factica'] >= 80 else ("Bueno" if general_metrics['exactitud_factica'] >= 60 else "Mejorar")}
+            </span>
+            <div style="margin-top: 0.5rem; font-size: 0.75rem; color: rgba(255,255,255,0.5);">
+                Consolidado del sistema
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with col_gen2:
+        cobertura_badge = 'badge-success' if general_metrics['cobertura'] >= 75 else ('badge-warning' if general_metrics['cobertura'] >= 50 else 'badge-danger')
+        st.markdown(f"""
+        <div class="metric-card">
+            <div style="font-size: 0.85rem; color: rgba(255,255,255,0.6);">📚 COBERTURA</div>
+            <div style="font-size: 2.5rem; font-weight: 700; color: #6366f1; margin: 0.5rem 0;">
+                {general_metrics['cobertura']:.1f}%
+            </div>
+            <span class="status-badge {cobertura_badge}">
+                {"Excelente" if general_metrics['cobertura'] >= 75 else ("Bueno" if general_metrics['cobertura'] >= 50 else "Mejorar")}
+            </span>
+            <div style="margin-top: 0.5rem; font-size: 0.75rem; color: rgba(255,255,255,0.5);">
+                Consolidado del sistema
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with col_gen3:
+        citas_badge = 'badge-success' if general_metrics['citas_validas'] >= 85 else ('badge-warning' if general_metrics['citas_validas'] >= 70 else 'badge-danger')
+        st.markdown(f"""
+        <div class="metric-card">
+            <div style="font-size: 0.85rem; color: rgba(255,255,255,0.6);">📖 CITAS VÁLIDAS</div>
+            <div style="font-size: 2.5rem; font-weight: 700; color: #6366f1; margin: 0.5rem 0;">
+                {general_metrics['citas_validas']:.1f}%
+            </div>
+            <span class="status-badge {citas_badge}">
+                {"Excelente" if general_metrics['citas_validas'] >= 85 else ("Bueno" if general_metrics['citas_validas'] >= 70 else "Mejorar")}
+            </span>
+            <div style="margin-top: 0.5rem; font-size: 0.75rem; color: rgba(255,255,255,0.5);">
+                Consolidado del sistema
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with col_gen4:
+        claridad_badge = 'badge-success' if general_metrics['claridad'] >= 3.5 else ('badge-warning' if general_metrics['claridad'] >= 2.5 else 'badge-danger')
+        st.markdown(f"""
+        <div class="metric-card">
+            <div style="font-size: 0.85rem; color: rgba(255,255,255,0.6);">✨ CLARIDAD</div>
+            <div style="font-size: 2.5rem; font-weight: 700; color: #6366f1; margin: 0.5rem 0;">
+                {general_metrics['claridad']:.2f}/5
+            </div>
+            <span class="status-badge {claridad_badge}">
+                {"Excelente" if general_metrics['claridad'] >= 3.5 else ("Bueno" if general_metrics['claridad'] >= 2.5 else "Mejorar")}
+            </span>
+            <div style="margin-top: 0.5rem; font-size: 0.75rem; color: rgba(255,255,255,0.5);">
+                Consolidado del sistema
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    # Segunda fila: Métricas de riesgo y rendimiento
+    col_gen5, col_gen6, col_gen7, col_gen8 = st.columns(4)
+    
+    with col_gen5:
+        alucinacion_badge = 'badge-success' if general_metrics['alucinacion'] <= 10 else ('badge-warning' if general_metrics['alucinacion'] <= 20 else 'badge-danger')
+        st.markdown(f"""
+        <div class="metric-card">
+            <div style="font-size: 0.85rem; color: rgba(255,255,255,0.6);">⚠️ ALUCINACIÓN</div>
+            <div style="font-size: 2.5rem; font-weight: 700; color: #6366f1; margin: 0.5rem 0;">
+                {general_metrics['alucinacion']:.1f}%
+            </div>
+            <span class="status-badge {alucinacion_badge}">
+                {"Excelente" if general_metrics['alucinacion'] <= 10 else ("Aceptable" if general_metrics['alucinacion'] <= 20 else "Alto")}
+            </span>
+            <div style="margin-top: 0.5rem; font-size: 0.75rem; color: rgba(255,255,255,0.5);">
+                Consolidado del sistema
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with col_gen6:
+        seguridad_badge = 'badge-success' if general_metrics['seguridad'] <= 5 else ('badge-warning' if general_metrics['seguridad'] <= 10 else 'badge-danger')
+        st.markdown(f"""
+        <div class="metric-card">
+            <div style="font-size: 0.85rem; color: rgba(255,255,255,0.6);">🔒 SEGURIDAD (riesgo)</div>
+            <div style="font-size: 2.5rem; font-weight: 700; color: #6366f1; margin: 0.5rem 0;">
+                {general_metrics['seguridad']:.1f}%
+            </div>
+            <span class="status-badge {seguridad_badge}">
+                {"Seguro" if general_metrics['seguridad'] <= 5 else ("Moderado" if general_metrics['seguridad'] <= 10 else "Alto")}
+            </span>
+            <div style="margin-top: 0.5rem; font-size: 0.75rem; color: rgba(255,255,255,0.5);">
+                Consolidado del sistema
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with col_gen7:
+        score_badge = 'badge-success' if general_metrics['score_promedio'] >= 0.70 else 'badge-warning'
+        st.markdown(f"""
+        <div class="metric-card">
+            <div style="font-size: 0.85rem; color: rgba(255,255,255,0.6);">🎯 SCORE PROMEDIO</div>
+            <div style="font-size: 2.5rem; font-weight: 700; color: #6366f1; margin: 0.5rem 0;">
+                {general_metrics['score_promedio']:.3f}
+            </div>
+            <span class="status-badge {score_badge}">
+                {"Aprobado" if general_metrics['score_promedio'] >= 0.70 else "Revisar"}
+            </span>
+            <div style="margin-top: 0.5rem; font-size: 0.75rem; color: rgba(255,255,255,0.5);">
+                Consolidado del sistema
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with col_gen8:
+        latencia_badge = 'badge-success' if general_metrics['latencia_promedio'] < 3 else ('badge-warning' if general_metrics['latencia_promedio'] < 5 else 'badge-danger')
+        st.markdown(f"""
+        <div class="metric-card">
+            <div style="font-size: 0.85rem; color: rgba(255,255,255,0.6);">⏱️ LATENCIA PROMEDIO</div>
+            <div style="font-size: 2.5rem; font-weight: 700; color: #6366f1; margin: 0.5rem 0;">
+                {general_metrics['latencia_promedio']:.2f}s
+            </div>
+            <span class="status-badge {latencia_badge}">
+                {"Rápido" if general_metrics['latencia_promedio'] < 3 else ("Normal" if general_metrics['latencia_promedio'] < 5 else "Lento")}
+            </span>
+            <div style="margin-top: 0.5rem; font-size: 0.75rem; color: rgba(255,255,255,0.5);">
+                Consolidado del sistema
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+    # --- Gráficos Consolidados del ChatBot General ---
+    st.markdown("#### 📊 Visualización Consolidada de Métricas")
+    
+    col_graph1, col_graph2 = st.columns(2)
+    
+    with col_graph1:
+        # Gráfico de radar con todas las métricas consolidadas
+        fig_radar = go.Figure()
+        
+        metrics_labels = ['Exactitud', 'Cobertura', 'Citas', 'Claridad', 'Anti-Alucinación', 'Seguridad']
+        # Normalizar todas las métricas a escala 0-100
+        metrics_values = [
+            general_metrics['exactitud_factica'],
+            general_metrics['cobertura'],
+            general_metrics['citas_validas'],
+            general_metrics['claridad'] * 20,  # Convertir de 0-5 a 0-100
+            100 - general_metrics['alucinacion'],  # Invertir alucinación (mientras menos mejor)
+            100 - general_metrics['seguridad']  # Invertir seguridad (mientras menos riesgo mejor)
+        ]
+        
+        fig_radar.add_trace(go.Scatterpolar(
+            r=metrics_values,
+            theta=metrics_labels,
+            fill='toself',
+            name='ChatBot General',
+            line=dict(color='#6366f1', width=2),
+            fillcolor='rgba(99, 102, 241, 0.3)'
+        ))
+        
+        fig_radar.update_layout(
+            polar=dict(
+                radialaxis=dict(
+                    visible=True,
+                    range=[0, 100],
+                    gridcolor='rgba(255,255,255,0.2)',
+                    tickfont=dict(color='white')
+                ),
+                angularaxis=dict(
+                    gridcolor='rgba(255,255,255,0.2)',
+                    tickfont=dict(color='white', size=11)
+                ),
+                bgcolor='rgba(0,0,0,0)'
+            ),
+            showlegend=False,
+            title=dict(
+                text="🎯 Perfil de Rendimiento General",
+                font=dict(color='white', size=16)
+            ),
+            paper_bgcolor='rgba(0,0,0,0)',
+            plot_bgcolor='rgba(0,0,0,0)',
+            height=400
+        )
+        
+        st.plotly_chart(fig_radar, use_container_width=True)
+    
+    with col_graph2:
+        # Gráfico de barras apiladas con métricas clave
+        metrics_comparison = pd.DataFrame({
+            'Métrica': ['Exactitud', 'Cobertura', 'Citas', 'Claridad (x20)', 'Score (x100)'],
+            'Valor': [
+                general_metrics['exactitud_factica'],
+                general_metrics['cobertura'],
+                general_metrics['citas_validas'],
+                general_metrics['claridad'] * 20,
+                general_metrics['score_promedio'] * 100
+            ]
+        })
+        
+        fig_bars = px.bar(
+            metrics_comparison,
+            x='Métrica',
+            y='Valor',
+            title="📊 Métricas Clave del Sistema (Normalizadas a %)",
+            template="plotly_dark",
+            color='Valor',
+            color_continuous_scale=['#ef4444', '#fb923c', '#fbbf24', '#a855f7', '#6366f1'],
+            text='Valor'
+        )
+        
+        fig_bars.update_traces(texttemplate='%{text:.1f}%', textposition='outside')
+        
+        fig_bars.update_layout(
+            paper_bgcolor='rgba(0,0,0,0)',
+            plot_bgcolor='rgba(0,0,0,0)',
+            font=dict(color='white'),
+            yaxis=dict(range=[0, 105]),
+            showlegend=False,
+            height=400
+        )
+        
+        st.plotly_chart(fig_bars, use_container_width=True)
+    
+    # --- Distribución por Categoría (Consolidado) ---
+    st.markdown("#### 📂 Desempeño por Categoría (Consolidado)")
+    
+    if 'category' in df_filtered.columns:
+        category_consolidated = df_filtered.groupby('category').agg({
+            'score_individual': 'mean',
+            'exactitud_factica': 'mean',
+            'cobertura': 'mean',
+            'citas_validas': 'mean',
+            'claridad': 'mean',
+            'alucinacion': 'mean',
+            'seguridad': 'mean',
+            'latency_sec': 'mean'
+        }).round(3)
+        
+        category_consolidated.columns = [
+            'Score Promedio', 'Exactitud', 'Cobertura', 
+            'Citas', 'Claridad', 'Alucinación', 'Seguridad', 'Latencia (s)'
+        ]
+        
+        # Convertir a porcentajes las que corresponden
+        category_consolidated['Exactitud'] = (category_consolidated['Exactitud'] * 100).round(1)
+        category_consolidated['Cobertura'] = (category_consolidated['Cobertura'] * 100).round(1)
+        category_consolidated['Citas'] = (category_consolidated['Citas'] * 100).round(1)
+        category_consolidated['Alucinación'] = (category_consolidated['Alucinación'] * 100).round(1)
+        category_consolidated['Seguridad'] = (category_consolidated['Seguridad'] * 100).round(1)
+        
+        st.dataframe(
+            category_consolidated,
+            use_container_width=True,
+            height=300
+        )
+        
+        # Gráfico de categorías
+        fig_categories = px.bar(
+            category_consolidated.reset_index(),
+            x='category',
+            y='Score Promedio',
+            title="🎯 Score Promedio por Categoría (Sistema Completo)",
+            template="plotly_dark",
+            color='Score Promedio',
+            color_continuous_scale='Viridis',
+            text='Score Promedio'
+        )
+        
+        fig_categories.update_traces(texttemplate='%{text:.3f}', textposition='outside')
+        
+        fig_categories.update_layout(
+            paper_bgcolor='rgba(0,0,0,0)',
+            plot_bgcolor='rgba(0,0,0,0)',
+            font=dict(color='white'),
+            xaxis_title="Categoría",
+            yaxis_title="Score Promedio",
+            showlegend=False,
+            height=400
+        )
+        
+        st.plotly_chart(fig_categories, use_container_width=True)
+    
+    # --- Resumen Estadístico ---
+    with st.expander("📈 Ver Estadísticas Detalladas del Sistema", expanded=False):
+        col_stats1, col_stats2, col_stats3 = st.columns(3)
+        
+        with col_stats1:
+            st.markdown("**📊 Métricas de Calidad**")
+            st.metric("Score Máximo", f"{df_filtered['score_individual'].max():.3f}")
+            st.metric("Score Mínimo", f"{df_filtered['score_individual'].min():.3f}")
+            st.metric("Desviación Estándar", f"{df_filtered['score_individual'].std():.3f}")
+        
+        with col_stats2:
+            st.markdown("**⏱️ Métricas de Rendimiento**")
+            st.metric("Latencia Mínima", f"{df_filtered['latency_sec'].min():.2f}s")
+            st.metric("Latencia Máxima", f"{df_filtered['latency_sec'].max():.2f}s")
+            st.metric("Latencia Mediana", f"{df_filtered['latency_sec'].median():.2f}s")
+        
+        with col_stats3:
+            st.markdown("**📚 Datos del Sistema**")
+            st.metric("Total de Respuestas", total_responses)
+            st.metric("Modelos Evaluados", len(selected_models))
+            st.metric("Categorías", df_filtered['category'].nunique())
+
+    st.markdown("<br><br>", unsafe_allow_html=True)
+
     # --- Tabs para organizar contenido ---
     tab1, tab2, tab3 = st.tabs(["📈 Comparativa", "📝 Editor de Métricas", "🔍 Análisis Detallado"])
     
